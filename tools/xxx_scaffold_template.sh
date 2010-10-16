@@ -1,14 +1,14 @@
+#!/bin/bash
 source ./rrp-lib.sh
-NAME='EDIT_ME'
+MODEL='EDIT_ME'
 
 function do_generate () {
-    rails generate scaffold ${NAME} name:string username:string password:string email:string
-    rake db:migrate
+    rails generate scaffold ${MODEL} name:string username:string password:string email:string
 }
 
 function edit_model () {
-    MODEL="${TOP_DIR}/app/models/${NAME}.rb"
-    cat >> ${MODEL} <<EOF
+    MODEL_RB="${TOP_DIR}/app/models/${MODEL}.rb"
+    cat >> ${MODEL_RB} <<EOF
 
 # validates_presence_of :name
 # validates_presence_of :username
@@ -16,14 +16,13 @@ function edit_model () {
 # validates_presence_of :password
 EOF
 
-    $EDITOR ${MODEL}
+    $EDITOR ${MODEL_RB}
 
-    echo "Don't forget to edit foreign key model, if applicable" && sleep 1
+    echo "Don't forget to edit foreign key model, if applicable"
     
 }
 
 function do_migration () {
-    echo "Run db:migrate?"
     rake db:migrate
 }
 
