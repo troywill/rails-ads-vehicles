@@ -2,7 +2,7 @@ source ./rrp-lib.sh
 NAME='post'
 
 function do_generate () {
-    rails generate scaffold ${NAME} year:integer model_id:integer city_id:integer kbb_id:integer ad_url:string date:date ad_price:integer phone:string contact_name:string mileage:integer photo_url:string forsale:boolean notes:text
+    rails generate scaffold ${NAME} year:integer model_id:integer city_id:integer ad_url:string date:date ad_price:integer phone:string contact_name:string mileage:integer photo_url:string forsale:boolean notes:text
 }
 
 function edit_model () {
@@ -12,7 +12,6 @@ function edit_model () {
   validates_numericality_of :year
   belongs_to :model
   belongs_to :city
-  belongs_to :kbb
 EOF
 
     ${EDITOR} ${MODEL}
