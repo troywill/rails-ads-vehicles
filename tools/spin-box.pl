@@ -4,6 +4,7 @@ use strict;
 
 # See http://www.w3.org/TR/html401/interact/forms.html#edef-SELECT if curious
 # and see http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html
+# http://paulsturgess.co.uk/articles/show/23-select-and-collect-with-conditions-in-ruby-on-rails ( October 2010 )
 
 #### Begin section: Edit these four variables for the spin box to the foreign key ####
 my $child = 'model'; # The child table singularized, e.g. 'model'
