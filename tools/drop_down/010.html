@@ -1,0 +1,626 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ruby on Rails:  Create a Select Drop Down from an Array &laquo; As the Dude Abides&#8230;</title>
+<link rel="stylesheet" href="http://s0.wp.com/wp-content/themes/pub/mistylook/style.css?m=1284218336g" type="text/css" media="screen" />
+<link rel="alternate" type="application/rss+xml" title="As the Dude Abides&#8230; RSS Feed" href="http://danilogurovich.wordpress.com/feed/" />
+<link rel="pingback" href="http://danilogurovich.wordpress.com/xmlrpc.php" />
+<link rel="alternate" type="application/rss+xml" title="As the Dude Abides... &raquo; Ruby on Rails:  Create a Select Drop Down from an&nbsp;Array Comments Feed" href="http://danilogurovich.wordpress.com/2008/01/13/ruby-on-rails-create-a-select-drop-down-from-an-array/feed/" />
+<script type="text/javascript">
+/* <![CDATA[ */
+function addLoadEvent(func){var oldonload=window.onload;if(typeof window.onload!='function'){window.onload=func;}else{window.onload=function(){oldonload();func();}}}
+/* ]]> */
+</script>
+<link rel="stylesheet" href="http://s0.wp.com/wp-content/themes/h4/global.css?m=1284218319g" type="text/css" />
+<link rel='stylesheet' id='wpcom-sharing-css'  href='http://s0.wp.com/wp-content/mu-plugins/sharing/sharing.css?m=1284218306g&#038;ver=MU' type='text/css' media='all' />
+<script type='text/javascript' src='http://s0.wp.com/wp-includes/js/comment-reply.js?m=1284218299g&amp;ver=20090102'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://danilogurovich.wordpress.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://danilogurovich.wordpress.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='As the Dude Abides&#8230;' href='http://danilogurovich.wordpress.com/' />
+<link rel='prev' title='Back to Motorcycling Part 2 – The Nicest People Ride a Honda, but the Most Eclectic People Ride a Moto&nbsp;Guzzi!' href='http://danilogurovich.wordpress.com/2008/01/09/part-2-%e2%80%93-the-nicest-people-ride-a-honda-but-the-most-eclectic-people-ride-a-moto-guzzi/' />
+<link rel='next' title='Back to Motorcycling Part 3 &#8212; Gear and Gear Shifting: Protection and&nbsp;Education' href='http://danilogurovich.wordpress.com/2008/01/14/back-to-motorcycling-part-3-gear-and-gear-shifting-protection-and-education/' />
+<meta name="generator" content="WordPress.com" />
+<link rel='canonical' href='http://danilogurovich.wordpress.com/2008/01/13/ruby-on-rails-create-a-select-drop-down-from-an-array/' />
+<link rel='shortlink' href='http://wp.me/p4fqK-z' />
+<link rel="shortcut icon" type="image/x-icon" href="http://0.gravatar.com/blavatar/e101da43b582f7783a70cc60f64a6c80?s=16" sizes="16x16" />
+<link rel="icon" type="image/x-icon" href="http://0.gravatar.com/blavatar/e101da43b582f7783a70cc60f64a6c80?s=16" sizes="16x16" />
+<link rel="apple-touch-icon" href="http://0.gravatar.com/blavatar/e21d66821f3c87a6cb5ca661c6eb5ed3?s=158" />
+	<style type="text/css">
+	/* <![CDATA[ */
+				div#likes { margin-top: 15px; }
+		.like-button { border: 1px solid #eee; padding: 2px 6px; font-size: 13px; font-family: arial, tahoma, sans-serif; }
+		#wpl-likebox { clear: left; font-size: 11px; font-family: arial, tahoma, verdana, sans-serif !important; min-height: 30px; margin: 10px 0 !important; padding: 5px 0 10px 0 !important; }
+		#wpl-button { float: left; background: url( /i/buttonbg.png ) top left repeat-x; margin-right: 7px; border: 1px solid #d4d4d4; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
+		#wpl-button a { color: #666 !important; line-height: 130% !important; text-decoration: none !important; outline: none; float: left; padding: 3px 6px 2px 24px !important; font-size: 11px !important; background: url( /i/likestar.png ) 6px 49.8% no-repeat; }
+		#wpl-button.liked { background: #feffce; border: 1px solid #f3e389; }
+		#wpl-button.liked a { color: #ba871b !important; }
+		#wpl-likebox #wpl-count { min-height: 25px; line-height: 130% !important; float: left; padding-top: 4px; }
+		#wpl-likebox #wpl-avatars { clear: left; max-height: 98px; overflow: hidden; margin-top: 15px; line-height: 130% !important; }
+		#wpl-likebox #wpl-avatars img { border: none !important; }
+	/* ]]> */
+	</style>
+	<link rel='openid.server' href='http://danilogurovich.wordpress.com/?openidserver=1' />
+<link rel='openid.delegate' href='http://danilogurovich.wordpress.com/' />
+<link rel="search" type="application/opensearchdescription+xml" href="http://danilogurovich.wordpress.com/osd.xml" title="As the Dude Abides..." />
+<link rel="search" type="application/opensearchdescription+xml" href="http://wordpress.com/opensearch.xml" title="WordPress.com" />
+<style type="text/css">
+#headerimage {
+	background: url('http://danilogurovich.files.wordpress.com/2009/08/danilo_stonehengehdr.jpg') no-repeat;
+}
+</style>
+<style type="text/css">.recentcomments a{display:inline !important;padding: 0 !important;margin: 0 !important;}</style>
+<meta name="application-name" content="As the Dude Abides..." /><meta name="msapplication-window" content="width=device-width;height=device-height" /><meta name="msapplication-tooltip" content="Moto Guzzis, eCommerce technology, good food and friends, etc." /><meta name="msapplication-task" content="name=Subscribe;action-uri=http://danilogurovich.wordpress.com/feed/;icon-uri=http://0.gravatar.com/blavatar/e101da43b582f7783a70cc60f64a6c80?s=16" /><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=http://s2.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="http://danilogurovich.wordpress.com?custom-css=1&#038;csblog=4fqK&#038;cscache=5&#038;csrev=2" />
+<script type="text/javascript"> 
+	window.google_analytics_uacct = "UA-52447-2"; 
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_setDomainName', 'wordpress.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script>
+</head>
+<body id="section-index">
+
+
+<div id="navigation" class="clearfix">
+		<div class="menu">
+		<ul>
+			<li ><a href="http://danilogurovich.wordpress.com/" title="Home">Home</a></li>
+			<li class="page_item page-item-486"><a href="http://danilogurovich.wordpress.com/motorcycle-and-scooter-reviews/" title="Moto&nbsp;Reviews">Moto&nbsp;Reviews</a></li>
+<li class="page_item page-item-625"><a href="http://danilogurovich.wordpress.com/guzzi-resources/" title="Guzzi&nbsp;Stuff">Guzzi&nbsp;Stuff</a></li>
+<li class="page_item page-item-1150"><a href="http://danilogurovich.wordpress.com/rider-chronicles/" title="Rider&nbsp;Chronicles">Rider&nbsp;Chronicles</a></li>
+<li class="page_item page-item-100"><a href="http://danilogurovich.wordpress.com/bio/" title="Bio">Bio</a></li>
+									<li class="search"><form method="get" id="searchform" action="http://danilogurovich.wordpress.com"><input type="text" class="textbox" value="" name="s" id="s" /><input type="submit" id="searchsubmit" value="Search" /></form></li>
+					</ul>	
+	</div>
+</div><!-- end id:navigation -->
+
+<div id="container">
+
+
+<div id="header">
+<h1><a href="http://danilogurovich.wordpress.com/" title="As the Dude Abides&#8230;">As the Dude Abides&#8230;</a></h1>
+<h2>Moto Guzzis, eCommerce technology, good food and friends, etc.</h2>
+</div><!-- end id:header -->
+
+
+<div id="feedarea">
+<dl>
+	<dt><strong>Feeds:</strong></dt>
+	<dd><a href="http://danilogurovich.wordpress.com/feed/">Posts</a></dd>
+	<dd><a href="http://danilogurovich.wordpress.com/comments/feed/">Comments</a></dd>
+</dl>
+</div><!-- end id:feedarea -->
+
+	<div id="headerimage">
+</div><!-- end id:headerimage -->
+<div id="content">
+<div id="content-main">
+		
+						
+			<div class="post-35 post type-post hentry category-ruby-rails category-software-dev-processes category-code-samples tag-array tag-array-object tag-collectionselect tag-drop-down tag-ruby-labelvalue tag-ruby-labelvaluebean tag-ruby-on-rails tag-select-box" id="post-35">
+				<div class="posttitle">
+					<h2>Ruby on Rails:  Create a Select Drop Down from an&nbsp;Array</h2>
+					<p class="post-info">13 Jan 08 by <a href="http://danilogurovich.wordpress.com/author/dgurovich/" title="Posts by Danilo">Danilo</a>  </p>
+				</div>
+				
+				<div class="entry">
+					<script type="text/javascript" src="http://s0.wp.com/wp-content/plugins/adverts/adsense.js?m=1284218313g&amp;1"></script><div style="font-size:18px;font-style:italic;"> 			Problem: You wish to populate a &#8220;collection_select&#8221; box with an Array.</div>
+<p>I recently had an issue where I wanted to create a select box populated from an array of continuous years. I wanted to use the<code>collection_select</code> method so it would have a minimal &#8220;code footprint&#8221; and play nice with the form that I had built. The application that I&#8217;m working on is in Rails2 and I didn&#8217;t want to divert heavily or make to many changes, and after some fiddling I came up with a nice solution: In the <code>environment.rb</code> file I created an Array constant to contain the year range that I wanted to use:</p>
+<div style="font-size:10px;font-family:lucida,courier,monospace;">     #Constant Values<br />
+YEARS_ARRAY = Array.new(89) {|i| 1920+i}</div>
+<p>This code is a shortcut to create an array of values between 1920 and 2008 (88 years). It creates a new array with a size of 88, and then uses the <code>i</code> value to populate each year incrementally. I was pleased to find a method like this!</p>
+<p>The form declaration contained the object that I wanted to populate with the form values using the Rails2 syntax:</p>
+<div style="font-size:10px;font-family:lucida,courier,monospace;">    &lt;table class=&#8221;new&#8221;&gt;<br />
+&lt;% form_for(@movie_poster) do |f| %&gt;<br />
+&nbsp;&lt;tr&gt;<br />
+&lt;th&gt;Title:&lt;/th&gt;<br />
+&nbsp;&nbsp;&lt;td&gt;&lt;%= f.text_field :title %&gt;&lt;/td&gt;<br />
+&nbsp;&lt;/tr&gt;<br />
+&#8230;..<br />
+&lt;% end %&gt;<br />
+&lt;/table&gt;</div>
+<p><span style="font-size:10px;font-style:italic;">*note the newer Rails2 syntax for the form&#8230;</span></p>
+<p>I will populate my select box with an Array of Objects. I need to create my Object first to populate my Labels and Values, and I used an &#8220;old trick&#8221; from Struts by creating a Ruby <code>LabelValue</code> object that mimics Struts <code>LabelValueBean</code> utility POJO. The object has a label and value <code>accessor</code>, which works extremely well for any set of arrays since any kind of mapping scheme would consume duplicate keys and often select boxes, radio buttons, etc may need some duplication. Here is my <code>label_value.rb</code> class, located in my model directory:</p>
+<div style="font-size:10px;font-family:lucida,courier,monospace;"># Creates a Label and value for select boxes and<br />
+# forms without clearly delinieated# objects, such as Arrays.<br />
+class LabelValue<br />
+# name the accessors. Label and Value<br />
+attr_accessor :label, :value<br />
+end</div>
+<p>Now that I have a model to work with and an Array Constant to use, I created the &#8220;helper&#8221; to use with the form tag in the <code>application_helper.rb</code> file, so I might use it throughout the application&#8217;s forms. There are two methods, one public, and one private. Note the &#8220;Select year&#8221; prompt:</p>
+<div style="font-size:10px;font-family:lucida,courier,monospace;"># selection for a year value<br />
+# &#8216;f&#8217; represents the passed in form value<br />
+def year_select(f)<br />
+f.collection_select(:year,year_lookup,:label,:value,{:prompt=&gt;&#8221;Select year&#8221;})<br />
+end<br />
+#  &#8212;&#8212;&#8212;&#8212; PRIVATE METHODS &#8212;&#8212;&#8212;&#8212;&#8212;&#8211;</p>
+<p>private</p>
+<p>def year_lookup<br />
+#create  an emptycollection to hold the LabelValue Objects<br />
+years = Array.new()#populate the ArrayYEARS_ARRAY.each do |yr| y = LabelValue.new<br />
+y.label = yr<br />
+y.value = yr<br />
+years.push(y)<br />
+end<br />
+years<br />
+end</p></div>
+<p>Finally, we need to call the _helper method from the form:</p>
+<div style="font-size:10px;font-family:lucida,courier,monospace;">&lt;tr&gt;<br />
+&lt;th&gt;Grade:&lt;/th&gt;<br />
+&lt;td&gt;&lt;%= grade_select(f) %&gt;&lt;/td&gt;<br />
+&lt;/tr&gt;</div>
+<p>The resulting code renders a select box:</p>
+<div style="font-size:10px;font-family:lucida,courier,monospace;">      &lt;select id=&#8221;movie_poster_year&#8221; name=&#8221;movie_poster[year]&#8220;&gt;<br />
+&lt;option value=&#8221;"&gt;Select year&lt;/option&gt;<br />
+&lt;option value=&#8221;1920&#8243;&gt;1920&lt;/option&gt;<br />
+&lt;option value=&#8221;1921&#8243;&gt;1921&lt;/option&gt;<br />
+&lt;option value=&#8221;1922&#8243;&gt;1922&lt;/option&gt;<br />
+&lt;option value=&#8221;1923&#8243;&gt;1923&lt;/option&gt;<br />
+&lt;option value=&#8221;1924&#8243;&gt;1924&lt;/option&gt;</p>
+<p># continues&#8230;</p>
+<p>&lt;option value=&#8221;2005&#8243;&gt;2005&lt;/option&gt;<br />
+&lt;option value=&#8221;2006&#8243;&gt;2006&lt;/option&gt;<br />
+&lt;option value=&#8221;2007&#8243;&gt;2007&lt;/option&gt;<br />
+&lt;option value=&#8221;2007&#8243;&gt;2007&lt;/option&gt;<br />
+&lt;/select&gt;</p></div>
+<p>The nice thing is reusability of the <code>LabelValue</code> class, the <code>YEAR</code> Constant and the <code>collection_select</code> itelf. Everything can be accessed as it is needed, whether you want to use the Constant Array for something else, the <code>LabelValue</code> object for a different array or tuple, or the actual rendered select box in different views.</p>
+<h5> 			UPDATE, 1/15:</h5>
+<p><i>See the comments below for a nice alternative and discussion!</i>
+<div class="snap_nopreview sharing robots-nocontent">
+<ul>
+<li class="sharing_label">Share this:</li>
+<li class="share-digg share-regular"><a rel="nofollow" class="share-digg share-icon" href="http://danilogurovich.wordpress.com/2008/01/13/ruby-on-rails-create-a-select-drop-down-from-an-array/?share=digg" title="Click to Digg this post">Digg</a></li>
+<li class="share-end"></li>
+</ul>
+<div class="sharing-clear"></div>
+</div>
+<div style="margin-top: 1em" class="possibly-related"><hr /><p><strong>Possibly related posts: (automatically generated)</strong></p><ul><li><a rel='related nofollow' href='http://sundogsolarthermaltestsite.wordpress.com/2009/09/30/troubleshooting-the-system/'>Troubleshooting the System</a></li><li><a rel='related nofollow' href='http://mar1ene.wordpress.com/2009/03/08/colour-create-6/'>Colour Create ~6~</a></li></ul></div>
+<!--adcode-->
+<div align="center" style="padding-top: 5px; text-align: left;" class="adcode">
+<script type="text/javascript"><!--
+google_ad_client = "pub-3443918307802676";
+google_ad_output = "js";
+google_feedback = "on";
+google_max_num_ads = "4";
+google_ad_width = 336;
+google_ad_height = 280;
+google_ad_format = "336x280_as";
+google_image_size = "336x280";
+google_ad_type = "text,flash,html";
+google_ad_channel ="7770228814+3633280292+7401333398+7453468586+2794543176";
+var color_bg = 'ffffff';
+var color_text = '000000';
+var color_link = '265E15';
+var color_border = 'ffffff';
+var color_url = '265E15';
+
+google_analytics_domain_name = "wordpress.com";
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+</div>
+<div style="clear: both"><br /></div>
+<!--/adcode-->
+									</div>
+		
+				<p class="postmetadata">Posted in <a href="http://en.wordpress.com/tag/ruby-rails/" title="View all posts in Ruby &amp; Rails" rel="category tag">Ruby &amp; Rails</a>, <a href="http://en.wordpress.com/tag/software-dev-processes/" title="View all posts in Software Dev Processes" rel="category tag">Software Dev Processes</a>, <a href="http://en.wordpress.com/tag/code-samples/" title="View all posts in code samples" rel="category tag">code samples</a> | Tagged <a href="http://en.wordpress.com/tag/array/" rel="tag">array</a>, <a href="http://en.wordpress.com/tag/array-object/" rel="tag">array object</a>, <a href="http://en.wordpress.com/tag/collection_select/" rel="tag">collection_select</a>, <a href="http://en.wordpress.com/tag/drop-down/" rel="tag">drop down</a>, <a href="http://en.wordpress.com/tag/ruby-labelvalue/" rel="tag">Ruby LabelValue</a>, <a href="http://en.wordpress.com/tag/ruby-labelvaluebean/" rel="tag">Ruby LabelValueBean.</a>, <a href="http://en.wordpress.com/tag/ruby-on-rails/" rel="tag">Ruby on Rails</a>, <a href="http://en.wordpress.com/tag/select-box/" rel="tag">select box</a> | 8 Comments</p>
+				
+<!-- You can start editing here. -->
+
+<h3 id="comments">8 Responses</h3>
+
+	<ol class="commentlist">
+			<li class="comment even thread-even depth-1" id="comment-1127">
+		<div id="div-comment-1127">
+		<div class="cmtinfo"><em> on <a href="#comment-1127" title="">14 Jan 08 at 08:12</a></em>  <cite>Tom C</cite></div>
+						<p>Looks nice, Danilo.  You might, however, want to look at Structs in Ruby.  You can replace your class definition with the following line:</p>
+<p>LabelValue = Struct.new(:label, :value)</p>
+<p>This will create a new class called LabelValue with accessors for label and value.  Plus, it creates a constructor, so you can create instances like this:</p>
+<p>obj = LabelValue.new(&#8216;mylabel&#8217;, &#8216;myvalue&#8217;)</p>
+<p>Also, you may wish to look at Ruby ranges to do the year array.  Your constant could also be created like this:</p>
+<p>YEARS_ARRAY = (1920..2008).entries</p>
+<p>By the way, your year_lookup re-builds the select collection array every time it is called.  You might want to put it in a constant (or class variable).  Here is how I would do it:</p>
+<p>YEARS_SELECT_COLLECTION = YEARS_ARRAY.collect {|yr| LabelValue.new(yr,yr)}</p>
+<p>Happy New Year.<br />
+-Tc</p>
+			<br style="clear: both" />
+		</div>
+</li>
+		<li class="comment byuser comment-author-dgurovich bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-1128">
+		<div id="div-comment-1128">
+		<div class="cmtinfo"><em> on <a href="#comment-1128" title="">14 Jan 08 at 09:14</a></em>  <cite><a href='http://www.gurovich.com' rel='external nofollow' class='url'>Danilo</a></cite></div>
+						<p>Thanks for the comment.  I &#8220;thought&#8221; there was a way of creating the array this way, but couldn&#8217;t find that particular constructor in any documentation ( hey, it&#8217;s &#8220;open source&#8221;, so&#8230;) I&#8217;ll definitely do that.</p>
+<p>I looked hard at using the &#8220;Struct&#8221; instead of the accessors, and still might do this.  I had a worry that I might want to do &#8220;more&#8221; with the class at a later point, but the nice thing about Ruby is that your classes can be quite mutable without affecting their future functionality.</p>
+<p>As far as putting the collection into a constant, you&#8217;re absolutely right.  I just missed that and it would definitely be an enhancement!  </p>
+<p>Always so much to learn.  Nice comment!</p>
+			<br style="clear: both" />
+		</div>
+</li>
+		<li class="comment byuser comment-author-dgurovich bypostauthor even thread-even depth-1" id="comment-1132">
+		<div id="div-comment-1132">
+		<div class="cmtinfo"><em> on <a href="#comment-1132" title="">15 Jan 08 at 12:41</a></em>  <cite><a href='http://www.gurovich.com' rel='external nofollow' class='url'>Danilo</a></cite></div>
+						<p>Tom.  You are the man.  Here is my the pertinent code in my &#8220;environment.rb&#8221; file.  I just deleted the LabelValue class entirely.  It very much reminds me of the bean declarations in the Application Context, no?</p>
+<p>  # &#8212;&#8212;- Structs<br />
+  LabelValue = Struct.new(:label,:value)</p>
+<p>  # &#8212;&#8212;- Constant Values</p>
+<p>  # Year array<br />
+  YEARS_ARRAY = (1920..2008).entries</p>
+<p>  # Year collection<br />
+  YEARS_SELECT_COLLECTION = YEARS_ARRAY.collect {|yr| LabelValue.new(yr,yr)}</p>
+<p>&#8230;.</p>
+<p>From there, I just use the method in the helper file to populate the values &#8212; it&#8217;s all &#8220;static&#8221; so you get the single instance.  Much, much cleaner.</p>
+<p>Thanks.</p>
+			<br style="clear: both" />
+		</div>
+</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1286">
+		<div id="div-comment-1286">
+		<div class="cmtinfo"><em> on <a href="#comment-1286" title="">7 Aug 08 at 13:35</a></em>  <cite>crouchingbadger</cite></div>
+						<p>Thanks Tom &amp; Danilo, this was useful stuff as I&#8217;m trying to generate a similar thing (as I&#8217;m sure anyone who&#8217;s trying to use rails for anything useful has)</p>
+<p>Just wondering if it would make more sense to auto-increment the max year so you don&#8217;t have to fix it with a New Years hangover once a year?</p>
+<p>YEARS_ARRAY = (1920..Time.new.strftime(&#8216;%Y&#8217;).to_i).entries</p>
+<p>Cheers<br />
+Ben</p>
+			<br style="clear: both" />
+		</div>
+</li>
+		<li class="comment even thread-even depth-1" id="comment-1343">
+		<div id="div-comment-1343">
+		<div class="cmtinfo"><em> on <a href="#comment-1343" title="">16 Oct 08 at 04:35</a></em>  <cite>Janus</cite></div>
+						<p>Please give me your full code on below, helper method and how u called it from view. And why keeping the below in environment.rb</p>
+<p>You are the man. Here is my the pertinent code in my “environment.rb” file. I just deleted the LabelValue class entirely. It very much reminds me of the bean declarations in the Application Context, no?</p>
+<p># ——- Structs<br />
+LabelValue = Struct.new(:label,:value)</p>
+<p># ——- Constant Values</p>
+<p># Year array<br />
+YEARS_ARRAY = (1920..2008).entries</p>
+<p># Year collection<br />
+YEARS_SELECT_COLLECTION = YEARS_ARRAY.collect {|yr| LabelValue.new(yr,yr)}</p>
+<p>….</p>
+<p>From there, I just use the method in the helper file to populate the values — it’s all “static” so you get the single instance. Much, much cleaner.</p>
+<p>Thanks</p>
+			<br style="clear: both" />
+		</div>
+</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1457">
+		<div id="div-comment-1457">
+		<div class="cmtinfo"><em> on <a href="#comment-1457" title="">11 Nov 08 at 08:35</a></em>  <cite><a href='http://www.catch.fm' rel='external nofollow' class='url'>Dara</a></cite></div>
+						<p>thanks for this guys,</p>
+<p>nice solution, any improvements since ?</p>
+<p>My form field entry is now:</p>
+<p>My application wide helper is :</p>
+<p>  def channel_select(f)<br />
+    f.collection_select(:source, CHANNEL_SELECT_COLLECTION, :label, :value, {:prompt =&gt; &#8216;Select Channel Source&#8217;})<br />
+  end</p>
+<p>And my code in environment.rb is </p>
+<p>LabelValue = Struct.new(:label, :value)<br />
+CHANNEL_SOURCES_ARRAY = ['abc', 'def', 'ghi']<br />
+CHANNEL_SELECT_COLLECTION = CHANNEL_SOURCES_ARRAY.collect { |chan| LabelValue.new(chan,chan) }</p>
+<p>I am cautiosly wary about editing such code into environment.rb, might move the array content out specific env files, or just put something into /lib </p>
+<p>any thoughts ?</p>
+			<br style="clear: both" />
+		</div>
+</li>
+		<li class="comment byuser comment-author-dgurovich bypostauthor even thread-even depth-1" id="comment-1458">
+		<div id="div-comment-1458">
+		<div class="cmtinfo"><em> on <a href="#comment-1458" title="">11 Nov 08 at 10:22</a></em>  <cite><a href='http://www.gurovich.com' rel='external nofollow' class='url'>Danilo</a></cite></div>
+						<p>Probably depends upon how much stuff you&#8217;re putting in the environment.rb file.  I see why you might want to do this if you have a lot of label/values to manage.  I kind of like doing this over putting them into a database, as long as they are static in nature and read-only.  </p>
+<p>The key is striking the balance, and you&#8217;ll know for sure if you&#8217;ve done this if it&#8217;s maintainable.</p>
+			<br style="clear: both" />
+		</div>
+</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1532">
+		<div id="div-comment-1532">
+		<div class="cmtinfo"><em> on <a href="#comment-1532" title="">27 Jan 09 at 16:47</a></em>  <cite>Ben</cite></div>
+						<p>Rails 2.1+<br />
+You may want to take a look at using the Rails.cache capabilities.</p>
+<p>In a class:<br />
+app/models/years.rb<br />
+class Years<br />
+  def self.get_years<br />
+    Rails.cache.fetch(&#8216;years&#8217;) {(1920..Time.now.strftime(’%Y’).to_i).entries}<br />
+  end</p>
+<p>  def self.update_years<br />
+    if self.get_years.max &lt; Time.now.strftime(’%Y’).to_i<br />
+      Rails.cache.delete(&#8216;years&#8217;)<br />
+      self.get_years<br />
+    end<br />
+  end<br />
+end</p>
+<p>use Years.get_years to return a cached version of the years.<br />
+use Years.update_years to update the cache with the current year dataset&#8230;might want to schedule updates for every night at 12:00AM.<br />
+Note that if you are running mongrel each cache is seen as a separate store unless you go with memcached&#8230;<br />
+You can get crazy with caching using memcached if you have a data set that you really want to have highly available/distributed.</p>
+			<br style="clear: both" />
+		</div>
+</li>
+	</ol>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+	<br />
+
+  <div class="post-content">
+<p>
+	<span class="commentsfeed"><a href='http://danilogurovich.wordpress.com/2008/01/13/ruby-on-rails-create-a-select-drop-down-from-an-array/feed/'>Comments RSS</a></span>
+</p>
+</div>
+
+
+<div id="respond">
+
+<h3>Leave a Reply</h3>
+
+<div class="cancel-comment-reply">
+	<small><a rel="nofollow" id="cancel-comment-reply-link" href="/2008/01/13/ruby-on-rails-create-a-select-drop-down-from-an-array/#respond" style="display:none;">Click here to cancel reply.</a></small>
+</div>
+
+
+<form action="http://danilogurovich.wordpress.com/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input class="textbox" type="text" name="author" id="author" value="" size="22" tabindex="1" />
+<label for="author"><small>Name (required)</small></label></p>
+
+<p><input class="textbox" type="text" name="email" id="email" value="" size="22" tabindex="2" />
+<label for="email"><small>E-mail (required)</small></label></p>
+
+<p><input class="textbox" type="text" name="url" id="url" value="" size="22" tabindex="3" />
+<label for="url"><small>Website</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;pre&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+<input type='hidden' name='comment_post_ID' value='35' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p>
+
+<input type="hidden" name="genseq" value="1287266067" />
+<p><input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;" tabindex="6"/> <label class="subscribe-label" id="subscribe-label" for="subscribe">Notify me of follow-up comments via email.</label></p><p><input type="checkbox" name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto;" tabindex="7"/> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Subscribe to this site by email</label></p><input type="hidden" name="sub-type" value="comment-form-text2" />
+</form>
+
+
+</div>
+
+			</div>
+	
+		
+		<p align="center"></p>
+		
+	</div><!-- end id:content-main -->
+<div id="sidebar">
+<ul>
+<li class="sidebox"><form role="search" method="get" id="searchform" action="http://danilogurovich.wordpress.com/" >
+	<div><label class="screen-reader-text" for="s">Search for:</label>
+	<input type="text" value="" name="s" id="s" />
+	<input type="submit" id="searchsubmit" value="Search" />
+	</div>
+	</form></li><li class="sidebox"><h2>ChasingMotorcycles Launched</h2>			<div class="textwidget"><a href="http://www.chasingmotorcycles.com">ChasingMotorcycles</a> was started because I wanted to share advertisements for great bikes that I liked.  I post them in blog format for discussion, information and fun.!</div>
+		</li><li class="sidebox"><h2>Looking for more Technology Articles?</h2>			<div class="textwidget">I've created another blog at my <a href="http://www.gurovich.com/" target="_blank"> <span style="text-decoration:underline;">home page (gurovich.com)</span>, to contain more technology-related articles in the future.</a>
+
+The technical articles that I've published are still here (check under "categories" below), but I've received most of my traffic in the last year related mostly to Moto Guzzis and my motorcycling experiences, which are a separate-but-equal passion.  </div>
+		</li><li class="sidebox"><h2>categories</h2><select name='cat' id='cat' class='postform' >
+	<option value='-1'>Select Category</option>
+	<option class="level-0" value="12984">Automobiles&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="645157">Enterprise Development&nbsp;&nbsp;(20)</option>
+	<option class="level-1" value="11160">&nbsp;&nbsp;&nbsp;eCommerce&nbsp;&nbsp;(7)</option>
+	<option class="level-1" value="1017">&nbsp;&nbsp;&nbsp;Java&nbsp;&nbsp;(9)</option>
+	<option class="level-2" value="89065">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code samples&nbsp;&nbsp;(8)</option>
+	<option class="level-2" value="114384">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;intellij&nbsp;&nbsp;(4)</option>
+	<option class="level-2" value="1198823">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jboss-rules&nbsp;&nbsp;(1)</option>
+	<option class="level-1" value="457">&nbsp;&nbsp;&nbsp;Javascript&nbsp;&nbsp;(2)</option>
+	<option class="level-1" value="62664">&nbsp;&nbsp;&nbsp;Quality Assurance&nbsp;&nbsp;(2)</option>
+	<option class="level-1" value="254728">&nbsp;&nbsp;&nbsp;Ruby &amp; Rails&nbsp;&nbsp;(1)</option>
+	<option class="level-1" value="15276189">&nbsp;&nbsp;&nbsp;Software Dev Processes&nbsp;&nbsp;(7)</option>
+	<option class="level-0" value="406">Family&nbsp;&nbsp;(10)</option>
+	<option class="level-1" value="25016407">&nbsp;&nbsp;&nbsp;Copper Hills&nbsp;&nbsp;(4)</option>
+	<option class="level-1" value="25016681">&nbsp;&nbsp;&nbsp;Copper Hills recipes&nbsp;&nbsp;(5)</option>
+	<option class="level-1" value="560520">&nbsp;&nbsp;&nbsp;family recipes&nbsp;&nbsp;(5)</option>
+	<option class="level-0" value="154058">Italian Food&nbsp;&nbsp;(5)</option>
+	<option class="level-0" value="8112">Motorcycles&nbsp;&nbsp;(63)</option>
+	<option class="level-1" value="143597">&nbsp;&nbsp;&nbsp;bike reviews&nbsp;&nbsp;(42)</option>
+	<option class="level-1" value="4023717">&nbsp;&nbsp;&nbsp;Choosing a motorcycle&nbsp;&nbsp;(42)</option>
+	<option class="level-1" value="4130902">&nbsp;&nbsp;&nbsp;motorcycle education&nbsp;&nbsp;(14)</option>
+	<option class="level-0" value="398">politics&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="66411">scooters&nbsp;&nbsp;(18)</option>
+	<option class="level-1" value="1297033">&nbsp;&nbsp;&nbsp;scooter reviews&nbsp;&nbsp;(15)</option>
+	<option class="level-0" value="200">Travel&nbsp;&nbsp;(6)</option>
+	<option class="level-1" value="1394078">&nbsp;&nbsp;&nbsp;airline etiquette&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="1">Uncategorized&nbsp;&nbsp;(1)</option>
+</select>
+
+<script type='text/javascript'>
+/* <![CDATA[ */
+	var dropdown = document.getElementById("cat");
+	function onCatChange() {
+		if ( dropdown.options[dropdown.selectedIndex].value > 0 ) {
+			location.href = "http://danilogurovich.wordpress.com/?cat="+dropdown.options[dropdown.selectedIndex].value;
+		}
+	}
+	dropdown.onchange = onCatChange;
+/* ]]> */
+</script>
+
+</li><li class="sidebox"><h2>Pages</h2>		<ul>
+			<li class="page_item page-item-486"><a href="http://danilogurovich.wordpress.com/motorcycle-and-scooter-reviews/" title="Moto&nbsp;Reviews">Moto&nbsp;Reviews</a>
+<ul class='children'>
+	<li class="page_item page-item-1103"><a href="http://danilogurovich.wordpress.com/motorcycle-and-scooter-reviews/moto-guzzi-v7-classic-reviews/" title="Moto Guzzi V7&nbsp;Classic">Moto Guzzi V7&nbsp;Classic</a></li>
+	<li class="page_item page-item-408"><a href="http://danilogurovich.wordpress.com/motorcycle-and-scooter-reviews/moto-guzzi-california-vintage-review-digest/" title="Guzzi Cal&nbsp;Vintage">Guzzi Cal&nbsp;Vintage</a></li>
+	<li class="page_item page-item-277"><a href="http://danilogurovich.wordpress.com/motorcycle-and-scooter-reviews/moto-guzzi-breva-1200-sport-review-digest/" title="Guzzi Breva&nbsp;1200">Guzzi Breva&nbsp;1200</a></li>
+	<li class="page_item page-item-512"><a href="http://danilogurovich.wordpress.com/motorcycle-and-scooter-reviews/piaggio-bv250-touring/" title="Piaggio BV250&nbsp;Touring">Piaggio BV250&nbsp;Touring</a></li>
+	<li class="page_item page-item-904"><a href="http://danilogurovich.wordpress.com/motorcycle-and-scooter-reviews/vespa-gtv-250/" title="Vespa GTV&nbsp;250">Vespa GTV&nbsp;250</a></li>
+</ul>
+</li>
+<li class="page_item page-item-625"><a href="http://danilogurovich.wordpress.com/guzzi-resources/" title="Guzzi&nbsp;Stuff">Guzzi&nbsp;Stuff</a>
+<ul class='children'>
+	<li class="page_item page-item-863"><a href="http://danilogurovich.wordpress.com/guzzi-resources/kansas/" title="Kansas">Kansas</a></li>
+	<li class="page_item page-item-866"><a href="http://danilogurovich.wordpress.com/guzzi-resources/kentucky/" title="Kentucky">Kentucky</a></li>
+	<li class="page_item page-item-869"><a href="http://danilogurovich.wordpress.com/guzzi-resources/louisiana/" title="Louisiana">Louisiana</a></li>
+	<li class="page_item page-item-876"><a href="http://danilogurovich.wordpress.com/guzzi-resources/maryland/" title="Maryland">Maryland</a></li>
+	<li class="page_item page-item-727"><a href="http://danilogurovich.wordpress.com/guzzi-resources/model-range/" title="Guzzi Model Range&nbsp;(2009)">Guzzi Model Range&nbsp;(2009)</a>
+	<ul class='children'>
+		<li class="page_item page-item-741"><a href="http://danilogurovich.wordpress.com/guzzi-resources/model-range/cal-vintage/" title="California&nbsp;Vintage">California&nbsp;Vintage</a></li>
+		<li class="page_item page-item-747"><a href="http://danilogurovich.wordpress.com/guzzi-resources/model-range/griso/" title="Griso">Griso</a></li>
+		<li class="page_item page-item-737"><a href="http://danilogurovich.wordpress.com/guzzi-resources/model-range/norge/" title="Norge">Norge</a></li>
+		<li class="page_item page-item-756"><a href="http://danilogurovich.wordpress.com/guzzi-resources/model-range/stelvio/" title="Stelvio">Stelvio</a></li>
+		<li class="page_item page-item-768"><a href="http://danilogurovich.wordpress.com/guzzi-resources/model-range/v7/" title="V7&nbsp;Classic">V7&nbsp;Classic</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="page_item page-item-1150"><a href="http://danilogurovich.wordpress.com/rider-chronicles/" title="Rider&nbsp;Chronicles">Rider&nbsp;Chronicles</a></li>
+<li class="page_item page-item-100"><a href="http://danilogurovich.wordpress.com/bio/" title="Bio">Bio</a></li>
+		</ul>
+		</li>		<li class="sidebox">			<h2>Popular</h2>			<ul><li><a href='http://danilogurovich.wordpress.com/2008/01/13/ruby-on-rails-create-a-select-drop-down-from-an-array/'>Ruby on Rails:  Create a Select Drop Down from an Array</a></li><li><a href='http://danilogurovich.wordpress.com/2008/10/22/moto-guzzi-california-vintage-review-day-1-cant-get-off-the-bikethei/'>Moto Guzzi California Vintage Review - Day 1 - Can't get off the bike!</a></li><li><a href='http://danilogurovich.wordpress.com/motorcycle-and-scooter-reviews/moto-guzzi-california-vintage-review-digest/'>Guzzi Cal Vintage</a></li><li><a href='http://danilogurovich.wordpress.com/2010/08/18/moto-guzzi-v7-classic-%e2%80%93-10000-ahhh-i-mean-11000-mile-report/'>Moto Guzzi V7 Classic – 10,000, ahhh, I mean, 11,000 mile report!</a></li><li><a href='http://danilogurovich.wordpress.com/2009/08/15/v7-classic-owners-review/'>Moto Guzzi V7 Classic Owner's Review -- The First Week and Before</a></li><li><a href='http://danilogurovich.wordpress.com/2009/10/17/ubuntu-karmic-koala-9-10-beta-buggy-touchpad-behavior/'>Ubuntu Karmic Koala (9.10 Beta) Buggy Touchpad Behavior</a></li></ul>		</li>		<li class="sidebox">		<h2>New!</h2>		<ul>
+				<li><a href="http://danilogurovich.wordpress.com/2010/10/06/ecommerce-usability-fail/" title="eCommerce Usability&nbsp;FAIL&#8230;">eCommerce Usability&nbsp;FAIL&#8230;</a></li>
+				<li><a href="http://danilogurovich.wordpress.com/2010/08/18/moto-guzzi-v7-classic-%e2%80%93-10000-ahhh-i-mean-11000-mile-report/" title="Moto Guzzi V7 Classic – 10,000, ahhh, I mean, 11,000 mile&nbsp;report!">Moto Guzzi V7 Classic – 10,000, ahhh, I mean, 11,000 mile&nbsp;report!</a></li>
+				<li><a href="http://danilogurovich.wordpress.com/2010/05/31/piaggio-mp3-400ie-the-weekend/" title="PIaggio MP3 400ie &#8211; The&nbsp;Weekend.">PIaggio MP3 400ie &#8211; The&nbsp;Weekend.</a></li>
+				<li><a href="http://danilogurovich.wordpress.com/2010/05/29/piaggio-mp3-400ie-day-two-and-three/" title="Piaggio MP3 400ie &#8211; Day Two and&nbsp;Three">Piaggio MP3 400ie &#8211; Day Two and&nbsp;Three</a></li>
+				<li><a href="http://danilogurovich.wordpress.com/2010/05/26/piaggio-mp3-400i-let-your-freak-flag-fly/" title="Piaggio MP3 &#8211; 400i  Let Your Freak Flag&nbsp;Fly!">Piaggio MP3 &#8211; 400i  Let Your Freak Flag&nbsp;Fly!</a></li>
+				</ul>
+		</li>
+		<li class="sidebox">			<h2>Latest Comments:</h2>			<ul id="recentcomments"><li class="recentcomments">Perkyp on <a href="http://danilogurovich.wordpress.com/2010/08/18/moto-guzzi-v7-classic-%e2%80%93-10000-ahhh-i-mean-11000-mile-report/#comment-2301">Moto Guzzi V7 Classic – 10,000, ahhh, I mean, 11,000 mile&nbsp;report!</a></li><li class="recentcomments"><a href='http://www.gurovich.com' rel='external nofollow' class='url'>Danilo</a> on <a href="http://danilogurovich.wordpress.com/2010/10/06/ecommerce-usability-fail/#comment-2300">eCommerce Usability&nbsp;FAIL&#8230;</a></li><li class="recentcomments"><a href='http://pitchpull.blogspot.com/' rel='external nofollow' class='url'>Greybeard</a> on <a href="http://danilogurovich.wordpress.com/2010/10/06/ecommerce-usability-fail/#comment-2299">eCommerce Usability&nbsp;FAIL&#8230;</a></li><li class="recentcomments"><a href='http://www.gurovich.com' rel='external nofollow' class='url'>Danilo</a> on <a href="http://danilogurovich.wordpress.com/2010/08/18/moto-guzzi-v7-classic-%e2%80%93-10000-ahhh-i-mean-11000-mile-report/#comment-2297">Moto Guzzi V7 Classic – 10,000, ahhh, I mean, 11,000 mile&nbsp;report!</a></li><li class="recentcomments">Nick on <a href="http://danilogurovich.wordpress.com/2010/08/18/moto-guzzi-v7-classic-%e2%80%93-10000-ahhh-i-mean-11000-mile-report/#comment-2296">Moto Guzzi V7 Classic – 10,000, ahhh, I mean, 11,000 mile&nbsp;report!</a></li></ul>
+		</li><li class="sidebox"><h2>Tagged</h2><div style="overflow:hidden"><a href='http://danilogurovich.wordpress.com/tag/250cc-scooters/' class='tag-link-13519795' title='3 topics' style='font-size: 10.333333333333pt;'>250cc scooters</a>
+<a href='http://danilogurovich.wordpress.com/tag/best-scooter/' class='tag-link-13563465' title='3 topics' style='font-size: 10.333333333333pt;'>best scooter</a>
+<a href='http://danilogurovich.wordpress.com/tag/best-vespa/' class='tag-link-13563467' title='3 topics' style='font-size: 10.333333333333pt;'>best vespa</a>
+<a href='http://danilogurovich.wordpress.com/tag/big-vespa/' class='tag-link-13519797' title='3 topics' style='font-size: 10.333333333333pt;'>big vespa</a>
+<a href='http://danilogurovich.wordpress.com/tag/bike-review/' class='tag-link-2409068' title='4 topics' style='font-size: 12.277777777778pt;'>Bike Review</a>
+<a href='http://danilogurovich.wordpress.com/tag/breva/' class='tag-link-9780107' title='2 topics' style='font-size: 8pt;'>Breva</a>
+<a href='http://danilogurovich.wordpress.com/tag/breva-1200-review/' class='tag-link-11888622' title='3 topics' style='font-size: 10.333333333333pt;'>Breva 1200 Review</a>
+<a href='http://danilogurovich.wordpress.com/tag/breva-1200-sport/' class='tag-link-4720439' title='8 topics' style='font-size: 17.138888888889pt;'>Breva 1200 Sport</a>
+<a href='http://danilogurovich.wordpress.com/tag/buying-a-scooter/' class='tag-link-8688589' title='5 topics' style='font-size: 13.833333333333pt;'>buying a scooter</a>
+<a href='http://danilogurovich.wordpress.com/tag/bv250/' class='tag-link-12896350' title='4 topics' style='font-size: 12.277777777778pt;'>BV250</a>
+<a href='http://danilogurovich.wordpress.com/tag/bv250-tourer/' class='tag-link-13074938' title='6 topics' style='font-size: 15.194444444444pt;'>BV250 Tourer</a>
+<a href='http://danilogurovich.wordpress.com/tag/danko-gurovich/' class='tag-link-23590481' title='3 topics' style='font-size: 10.333333333333pt;'>Danko Gurovich</a>
+<a href='http://danilogurovich.wordpress.com/tag/gtv/' class='tag-link-2453001' title='3 topics' style='font-size: 10.333333333333pt;'>GTV</a>
+<a href='http://danilogurovich.wordpress.com/tag/gtv250/' class='tag-link-13519794' title='3 topics' style='font-size: 10.333333333333pt;'>GTV250</a>
+<a href='http://danilogurovich.wordpress.com/tag/guzzi/' class='tag-link-2745187' title='6 topics' style='font-size: 15.194444444444pt;'>guzzi</a>
+<a href='http://danilogurovich.wordpress.com/tag/guzzi-repair/' class='tag-link-12252816' title='4 topics' style='font-size: 12.277777777778pt;'>Guzzi Repair</a>
+<a href='http://danilogurovich.wordpress.com/tag/guzzi-review/' class='tag-link-11868035' title='6 topics' style='font-size: 15.194444444444pt;'>Guzzi Review</a>
+<a href='http://danilogurovich.wordpress.com/tag/guzzi-reviews/' class='tag-link-12895333' title='3 topics' style='font-size: 10.333333333333pt;'>Guzzi Reviews</a>
+<a href='http://danilogurovich.wordpress.com/tag/handlebar-vespa/' class='tag-link-13519798' title='3 topics' style='font-size: 10.333333333333pt;'>handlebar vespa</a>
+<a href='http://danilogurovich.wordpress.com/tag/italian-motorcycles/' class='tag-link-4023562' title='4 topics' style='font-size: 12.277777777778pt;'>italian motorcycles</a>
+<a href='http://danilogurovich.wordpress.com/tag/italian-scooters/' class='tag-link-13074939' title='4 topics' style='font-size: 12.277777777778pt;'>Italian Scooters</a>
+<a href='http://danilogurovich.wordpress.com/tag/maxi-scooters/' class='tag-link-4023561' title='3 topics' style='font-size: 10.333333333333pt;'>maxi-scooters</a>
+<a href='http://danilogurovich.wordpress.com/tag/maxi-scooter/' class='tag-link-7600510' title='6 topics' style='font-size: 15.194444444444pt;'>Maxi Scooter</a>
+<a href='http://danilogurovich.wordpress.com/tag/moto-guzzi/' class='tag-link-288014' title='15 topics' style='font-size: 22pt;'>Moto Guzzi</a>
+<a href='http://danilogurovich.wordpress.com/tag/moto-guzzi-california/' class='tag-link-12578589' title='3 topics' style='font-size: 10.333333333333pt;'>Moto Guzzi California</a>
+<a href='http://danilogurovich.wordpress.com/tag/moto-guzzi-review/' class='tag-link-11888623' title='6 topics' style='font-size: 15.194444444444pt;'>Moto Guzzi Review</a>
+<a href='http://danilogurovich.wordpress.com/tag/moto-guzzi-v7-classic/' class='tag-link-14991536' title='6 topics' style='font-size: 15.194444444444pt;'>Moto Guzzi V7 Classic</a>
+<a href='http://danilogurovich.wordpress.com/tag/moto-guzzi-v7-classic-owner-impression/' class='tag-link-24050679' title='4 topics' style='font-size: 12.277777777778pt;'>Moto Guzzi V7 Classic Owner Impression</a>
+<a href='http://danilogurovich.wordpress.com/tag/motorcycle/' class='tag-link-23171' title='2 topics' style='font-size: 8pt;'>motorcycle</a>
+<a href='http://danilogurovich.wordpress.com/tag/motorcycles/' class='tag-link-8112' title='5 topics' style='font-size: 13.833333333333pt;'>Motorcycles</a>
+<a href='http://danilogurovich.wordpress.com/tag/motorcycling/' class='tag-link-32354' title='3 topics' style='font-size: 10.333333333333pt;'>Motorcycling</a>
+<a href='http://danilogurovich.wordpress.com/tag/new-motorcyclist/' class='tag-link-11725476' title='2 topics' style='font-size: 8pt;'>new motorcyclist</a>
+<a href='http://danilogurovich.wordpress.com/tag/new-scooter/' class='tag-link-4827006' title='3 topics' style='font-size: 10.333333333333pt;'>new scooter</a>
+<a href='http://danilogurovich.wordpress.com/tag/new-vespa/' class='tag-link-13519796' title='3 topics' style='font-size: 10.333333333333pt;'>new vespa</a>
+<a href='http://danilogurovich.wordpress.com/tag/piaggio/' class='tag-link-296801' title='4 topics' style='font-size: 12.277777777778pt;'>Piaggio</a>
+<a href='http://danilogurovich.wordpress.com/tag/piaggio-reviews/' class='tag-link-13074937' title='4 topics' style='font-size: 12.277777777778pt;'>Piaggio Reviews</a>
+<a href='http://danilogurovich.wordpress.com/tag/piaggio-scooter/' class='tag-link-7465553' title='8 topics' style='font-size: 17.138888888889pt;'>Piaggio Scooter</a>
+<a href='http://danilogurovich.wordpress.com/tag/retro-scooter/' class='tag-link-8431059' title='5 topics' style='font-size: 13.833333333333pt;'>retro scooter</a>
+<a href='http://danilogurovich.wordpress.com/tag/returning-rider/' class='tag-link-4028731' title='4 topics' style='font-size: 12.277777777778pt;'>returning rider</a>
+<a href='http://danilogurovich.wordpress.com/tag/return-to-riding/' class='tag-link-4046731' title='3 topics' style='font-size: 10.333333333333pt;'>return to riding</a>
+<a href='http://danilogurovich.wordpress.com/tag/scooter-review/' class='tag-link-12896351' title='4 topics' style='font-size: 12.277777777778pt;'>Scooter review</a>
+<a href='http://danilogurovich.wordpress.com/tag/scooter-vs-motorcycle/' class='tag-link-13357635' title='3 topics' style='font-size: 10.333333333333pt;'>Scooter vs Motorcycle</a>
+<a href='http://danilogurovich.wordpress.com/tag/top-of-line-scooter/' class='tag-link-13563466' title='3 topics' style='font-size: 10.333333333333pt;'>top-of-line scooter</a>
+<a href='http://danilogurovich.wordpress.com/tag/vespa-alternative/' class='tag-link-12896352' title='4 topics' style='font-size: 12.277777777778pt;'>Vespa alternative</a>
+<a href='http://danilogurovich.wordpress.com/tag/vespa-gtv-250/' class='tag-link-13519793' title='3 topics' style='font-size: 10.333333333333pt;'>Vespa GTV 250</a></div></li></ul>
+</div><!-- end id:sidebar -->
+</div><!-- end id:content -->
+</div><!-- end id:container -->
+<div id="footer">
+<p><a href="http://wordpress.com/" rel="generator">Blog at WordPress.com</a>.</p>
+<p>Theme: Mistylook by <a href="http://wpthemes.info/" rel="designer">Sadish</a>.</p>
+<br class="clear" />
+</div><!-- end id:footer -->
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script>
+<script type="text/javascript" src="//wordpresscom.skimlinks.com/api/wordpress.js"></script>
+<script type="text/javascript">
+var skimlinks_pub_id = "725X1342";
+var skimlinks_sitename = 'danilogurovich.wordpress.com';
+var skimlinks_domain = "go2.wordpress.com";
+skimlinks();
+</script>
+<script type="text/javascript">_qoptions={qacct:'p-18-mFEk4J448M',labels:'language.en,type.wpcom,as'};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><p><img class="robots-nocontent" src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif?labels=language.en%2Ctype.wpcom%2Cas" style="display:none" height="1" width="1" alt="" /></p></noscript>
+<script type='text/javascript' src='http://s1.wp.com/wp-includes/js/jquery/jquery.js?m=1284218297g&amp;ver=1.4.2'></script>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js?l&#038;ver=MU'></script>
+	<script type="text/javascript">
+	WPGroHo = {
+		data: {},
+		renderers: {},
+		syncProfileData: function( hash, id ) {
+			if ( !WPGroHo.data[hash] ) {
+				WPGroHo.data[hash] = {};
+				a = jQuery( 'div.grofile-hash-map-' + hash + ' span' ).each( function() {
+					WPGroHo.data[hash][this.className] = jQuery( this ).text();
+				} );
+			}
+
+			WPGroHo.appendProfileData( WPGroHo.data[hash], hash, id );
+		},
+		appendProfileData: function( data, hash, id ) {
+			for ( var key in data ) {
+				if ( jQuery.isFunction( WPGroHo.renderers[key] ) ) {
+					return WPGroHo.renderers[key]( data[key], hash, id, key );
+				}
+
+				jQuery( '#' + id ).find( 'h4' ).after( jQuery( '<p class="grav-extra ' + key + '" />' ).html( data[key] ) );
+			}
+		}
+	};
+	jQuery(document).ready(function($){
+		Gravatar.profile_cb = function( h, d ) {
+			WPGroHo.syncProfileData( h, d );
+		};
+		Gravatar.attach_profiles();
+	});
+	</script>
+	<div style="display:none">
+	</div>
+<script type='text/javascript'>_acseed='Nm01fCNhbSRyTnw/Xjdoa3U8QCArJj1KVl17PC4wSHtpZ0lhOEQ7LV07Vls9N3d7IS8gYFNYdWN5M3VXNTN2T0t2PiR2fCsqX2h4cXJCSHsrYTVELmdgbTdzbj5bQyw8WWJqc1IgOFMzS2tISCh+N1NOVWUuQDBnYi5uKX5VRVNAQzh5WjI9LTFFPUM6WXs1OmNAOXZCRnVEe3xL';</script>
+<script type='text/javascript' src='http://s1.wp.com/wp-content/mu-plugins/sharing/sharing.js?m=1284218306g&amp;ver=0.1'></script>
+<script type="text/javascript" src="http://b.scorecardresearch.com/beacon.js"></script><script type="text/javascript">try{COMSCORE.beacon({c1:2,c2:7518284});}catch(e){}</script><noscript><p class="robots-nocontent"><img src="http://b.scorecardresearch.com/p?cj=1c1=2&#038;c2=7518284" alt="" style="display:none" width="1" height="1" /></p></noscript><script src="http://s.stats.wordpress.com/w.js?19" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({'blog':'1012630','v':'wpcom','user_id':'0','post':'35','subd':'danilogurovich'});
+ex_go({'crypt':'RDZ8LFkxbXF0aVJhPVYmfFFiVHRaT3c1VXJETkJ+LTc0LyxWcEo4RGhuQmFNUH5dZGFTLSxWZmllam56bXhwJklLX25vcngtOFJQT3dxXWorSyw9cXwraSZQV25ReEo0LGNLUGp8Snpua2NoS0o1fk5UcV8sWWNnVlBDSkVSTnw9L0EzUkZ+SX50SVN1YlFtZmldVFImMFplJTBxLSxXd2FdVSZIWTlTeVdkZVlDfHlLRStYMVFDal8rRjZWYn4tfG04Vmd4PVkmektDRWtbZWdaS2hIeS1jeHVGWmptVX4udjJ1VUpKTHdfZGFpPW5OZyZhb2ZBYmlPZTN2JUxLYSZoflIzNlV0U1VnUGN2d3NmMDJzWUZzSkVyeHxoSk0mQXhsPWV4Vl81WGJRMj9tQT9JLC1TWkgtNERnQ2x8MWh5WzN2R3pKdVQrTH5PXUFJZW9tdkEvQmc0bzRHTXUuaUJGN1VVUj1uLnIrNGh2cTVlcU5HaWVteEtpLG1wP0JvS3hDUU5oVjMwTGlkPWxU'});
+re_go({'d[sundogsolarthermaltestsite.wordpress.com]':'1','d[mar1ene.wordpress.com]':'1','v':'sph','b':'1012630','p':'35'});
+addLoadEvent(function(){linktracker_init('1012630',35);});
+	</script>
+
+</body>
+</html>
