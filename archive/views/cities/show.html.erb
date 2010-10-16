@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @city.name %>
+</p>
+
+<p>
+  <b>Lat:</b>
+  <%= @city.lat %>
+</p>
+
+<p>
+  <b>Long:</b>
+  <%= @city.long %>
+</p>
+
+<p>
+  <b>Travel time:</b>
+  <%= @city.travel_time %>
+</p>
+
+<p>
+  <b>Google:</b>
+  <%= @city.google %>
+</p>
+
+
+<%= link_to 'Edit', edit_city_path(@city) %> |
+<%= link_to 'Back', cities_path %>

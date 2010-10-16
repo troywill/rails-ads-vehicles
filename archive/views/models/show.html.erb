@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Make:</b>
+  <%= @model.make_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @model.name %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @model.url %>
+</p>
+
+<p>
+  <b>Wikipedia:</b>
+  <%= @model.wikipedia %>
+</p>
+
+
+<%= link_to 'Edit', edit_model_path(@model) %> |
+<%= link_to 'Back', models_path %>

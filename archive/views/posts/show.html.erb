@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Year:</b>
+  <%= @post.year %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%= @post.model_id %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @post.city_id %>
+</p>
+
+<p>
+  <b>Kbb:</b>
+  <%= @post.kbb_id %>
+</p>
+
+<p>
+  <b>Ad url:</b>
+  <%= @post.ad_url %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @post.date %>
+</p>
+
+<p>
+  <b>Ad price:</b>
+  <%= @post.ad_price %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @post.phone %>
+</p>
+
+<p>
+  <b>Contact name:</b>
+  <%= @post.contact_name %>
+</p>
+
+<p>
+  <b>Mileage:</b>
+  <%= @post.mileage %>
+</p>
+
+<p>
+  <b>Photo url:</b>
+  <%= @post.photo_url %>
+</p>
+
+<p>
+  <b>Forsale:</b>
+  <%= @post.forsale %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @post.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

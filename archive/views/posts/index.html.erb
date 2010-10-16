@@ -1,0 +1,47 @@
+<h1>Listing posts</h1>
+
+<table>
+  <tr>
+    <th>Year</th>
+    <th>Model</th>
+    <th>City</th>
+    <th>Kbb</th>
+    <th>Ad url</th>
+    <th>Date</th>
+    <th>Ad price</th>
+    <th>Phone</th>
+    <th>Contact name</th>
+    <th>Mileage</th>
+    <th>Photo url</th>
+    <th>Forsale</th>
+    <th>Notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.year %></td>
+    <td><%= post.model_id %></td>
+    <td><%= post.city_id %></td>
+    <td><%= post.kbb_id %></td>
+    <td><%= post.ad_url %></td>
+    <td><%= post.date %></td>
+    <td><%= post.ad_price %></td>
+    <td><%= post.phone %></td>
+    <td><%= post.contact_name %></td>
+    <td><%= post.mileage %></td>
+    <td><%= post.photo_url %></td>
+    <td><%= post.forsale %></td>
+    <td><%= post.notes %></td>
+    <td><%= link_to 'Show', post %></td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Post', new_post_path %>

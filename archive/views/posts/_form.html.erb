@@ -1,0 +1,56 @@
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :year %>  <%= f.text_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :model_id %> <%= select("post", "model_id", Model.find(:all).collect { |p| [p.name, p.id]}) %>
+  </div>
+  <div class="field">
+    <%= f.label :city_id %> <%= select("post", "city_id", City.find(:all).collect { |p| [p.name, p.id]}) %>
+  </div>
+  <div class="field">
+    <%= f.label :kbb_id %>  <%= f.text_field :kbb_id %>
+  </div>
+  <div class="field">
+    <%= f.label :ad_url %>  <%= f.text_field :ad_url %>
+  </div>
+  <div class="field">
+    <%= f.label :date %>  <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :ad_price %>  <%= f.text_field :ad_price %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %>  <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_name %>  <%= f.text_field :contact_name %>
+  </div>
+  <div class="field">
+    <%= f.label :mileage %>  <%= f.text_field :mileage %>
+  </div>
+  <div class="field">
+    <%= f.label :photo_url %>  <%= f.text_field :photo_url %>
+  </div>
+  <div class="field">
+    <%= f.label :forsale %>  <%= f.check_box :forsale %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %>  <%= f.text_area :notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
