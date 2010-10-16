@@ -1,4 +1,6 @@
 #!/bin/bash
+# <troydwill@gmail.com> October 2010
+
 source ./rrp-lib.sh
 
 for SCRIPT in 010_controller_welcome.sh \
