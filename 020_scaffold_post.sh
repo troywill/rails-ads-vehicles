@@ -1,27 +1,39 @@
+#!/bin/bash
+# <troydwill@gmail.com> October 2010
 source ./rrp-lib.sh
-NAME='post'
+MODEL='post'
 
 function do_generate () {
-    rails generate scaffold ${NAME} year:integer model_id:integer city_id:integer ad_url:string date:date ad_price:integer phone:string contact_name:string mileage:integer photo_url:string forsale:boolean notes:text
+    rails generate scaffold ${MODEL} \
+	year:integer \
+	model_id:integer \
+	mileage:integer \
+	isforsale:boolean \
+	city_id:integer \
+	ad_url:string \
+	ad_date:date \
+	ad_price:integer \
+	phone:string \
+	contact_name:string \
+	notes:text
 }
 
 function edit_model () {
-    MODEL="${TOP_DIR}/app/models/${NAME}.rb"
-    cat >> ${MODEL} <<EOF
+    MODEL_RB="${TOP_DIR}/app/models/${MODEL}.rb"
+    cat >> ${MODEL_RB} <<EOF
   validates_presence_of :year
   validates_numericality_of :year
   belongs_to :model
   belongs_to :city
 EOF
 
-    ${EDITOR} ${MODEL}
+    ${EDITOR} ${MODEL_RB}
     
     echo "Don't forget to edit foreign key model, if applicable"
     
 }
 
 function do_migration () {
-    echo "Run db:migrate?"
     rake db:migrate
 }
 

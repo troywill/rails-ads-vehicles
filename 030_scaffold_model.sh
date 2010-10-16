@@ -1,19 +1,23 @@
+#!/bin/bash
 source ./rrp-lib.sh
-NAME='model'
+MODEL='model'
 
 function do_generate () {
-    rails generate scaffold ${NAME} make_id:integer name:string url:string wikipedia:string
-    rake db:migrate
+    rails generate scaffold ${MODEL} \
+	make_id:integer \
+	name:string \
+	url:string \
+	wikipedia:string
 }
 
 function edit_model () {
-    MODEL="${TOP_DIR}/app/models/${NAME}.rb"
-    cat >> ${MODEL} <<EOF
+    MODEL_RB="${TOP_DIR}/app/models/${MODEL}.rb"
+    cat >> ${MODEL_RB} <<EOF
   validates_presence_of :name
   belongs_to :make
 EOF
 
-    $EDITOR ${MODEL}
+    $EDITOR ${MODEL_RB}
 
     echo "Don't forget to edit foreign key model, if applicable" && sleep 1
     
