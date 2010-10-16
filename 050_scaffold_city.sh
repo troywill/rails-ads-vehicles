@@ -1,19 +1,20 @@
+#!/bin/bash
 source ./rrp-lib.sh
-NAME='city'
+MODEL='city'
 
 function do_generate () {
-    rails generate scaffold ${NAME} name:string lat:float long:float travel_time:integer google:string
+    rails generate scaffold ${MODEL} name:string lat:float long:float travel_time:integer google:string
     rake db:migrate
 }
 
 function edit_model () {
-    MODEL="${TOP_DIR}/app/models/${NAME}.rb"
-    cat >> ${MODEL} <<EOF
+    MODEL_RB="${TOP_DIR}/app/models/${MODEL}.rb"
+    cat >> ${MODEL_RB} <<EOF
   validates_presence_of :name
   has_many :posts
 EOF
 
-    $EDITOR ${MODEL}
+    $EDITOR ${MODEL_RB}
 
     echo "Don't forget to edit foreign key model, if applicable" && sleep 1
     
