@@ -1,22 +1,20 @@
 #!/bin/bash
 source ./rrp-lib.sh
-MODEL="**edit_me**"
+MODEL="setting"
 
 function generate_scaffold () {
-    rails generate scaffold ${MODEL} name:string \
-	username:string \
-	password:string \
-	email:string
+    rails generate scaffold ${MODEL} \
+	name:string \
+	email:string \
+	phone:string \
+	address:string \
+	lat:float \
+	long:long
 }
 
 function edit_model () {
     MODEL_RB="${TOP_DIR}/app/models/${MODEL}.rb"
     cat >> ${MODEL_RB} <<EOF
-
-# validates_presence_of :name
-# validates_presence_of :username
-# validates_uniqueness_of :username
-# validates_presence_of :password
 EOF
 
     $EDITOR ${MODEL_RB}
