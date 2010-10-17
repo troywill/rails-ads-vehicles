@@ -1,13 +1,14 @@
 #!/bin/bash
 source ./rrp-lib.sh
+
 MODEL='model'
 
 function generate_scaffold () {
     rails generate scaffold ${MODEL} \
 	make_id:integer \
 	name:string \
-	url:string \
-	wikipedia:string
+	wikipedia:string \
+	url:string
 }
 
 function edit_model () {
@@ -19,7 +20,7 @@ EOF
 
     $EDITOR ${MODEL_RB}
 
-    echo "Don't forget to edit foreign key model, if applicable" && sleep 1
+    echo "Don't forget to edit foreign key model, if applicable"
     
 }
 

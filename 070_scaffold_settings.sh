@@ -9,7 +9,7 @@ function generate_scaffold () {
 	phone:string \
 	address:string \
 	lat:float \
-	long:long
+	long:float
 }
 
 function edit_model () {

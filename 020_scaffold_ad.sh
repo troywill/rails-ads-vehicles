@@ -19,7 +19,7 @@ function generate_scaffold () {
 	contact_phone:string \
 	contact_email:string \
 	contact_log:text \
-	notes:text \
+	notes:text
 }
 
 function edit_model () {

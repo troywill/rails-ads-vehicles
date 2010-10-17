@@ -1,5 +1,6 @@
 #!/bin/bash
 source ./rrp-lib.sh
+
 MODEL='make'
 
 function generate_scaffold () {
