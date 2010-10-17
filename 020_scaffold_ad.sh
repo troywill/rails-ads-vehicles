@@ -5,6 +5,7 @@ source ./rrp-lib.sh
 MODEL='post'
 
 function generate_scaffold () {
+    # foreign keys 
     rails generate scaffold ${MODEL} \
 	year:integer \
 	model_id:integer \
@@ -14,9 +15,11 @@ function generate_scaffold () {
 	ad_url:string \
 	ad_date:date \
 	ad_price:integer \
-	phone:string \
 	contact_name:string \
-	notes:text
+	contact_phone:string \
+	contact_email:string \
+	contact_log:text \
+	notes:text \
 }
 
 function edit_model () {
