@@ -1,9 +1,12 @@
 #!/bin/bash
 source ./rrp-lib.sh
-MODEL='EDIT_ME'
+MODEL="**edit_me**"
 
-function do_generate () {
-    rails generate scaffold ${MODEL} name:string username:string password:string email:string
+function generate_scaffold () {
+    rails generate scaffold ${MODEL} name:string \
+	username:string \
+	password:string \
+	email:string
 }
 
 function edit_model () {
@@ -28,6 +31,6 @@ function do_migration () {
 
 ###### Main program #######
 
-do_generate
+generate_scaffold
 edit_model
 do_migration

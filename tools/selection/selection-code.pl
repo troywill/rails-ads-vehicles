@@ -7,7 +7,11 @@ use strict;
 # http://paulsturgess.co.uk/articles/show/23-select-and-collect-with-conditions-in-ruby-on-rails ( October 2010 )
 
 #### Begin section: Edit these four variables for the spin box to the foreign key ####
+# Tip: Ask yourself which view will have the selection code. The model associated with this view
+# will be the child model
+
 my $child = 'model'; # The child table singularized, e.g. 'model'
+
 my $foreign_key = 'make_id'; # The foreign key in the child table, e.g. 'make_id'
 my $foreign_model = 'Make'; # The model of the parent table, e.g. 'Make'
 my $foreign_attribute = 'name'; # The thing you want to lookup in the foreign table, e.g. 'name'

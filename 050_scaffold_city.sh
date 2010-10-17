@@ -2,7 +2,7 @@
 source ./rrp-lib.sh
 MODEL='city'
 
-function do_generate () {
+function generate_scaffold () {
     rails generate scaffold ${MODEL} name:string lat:float long:float travel_time:integer google:string
     rake db:migrate
 }
@@ -27,6 +27,6 @@ function do_migration () {
 
 ###### Main program #######
 
-do_generate
+generate_scaffold
 edit_model
 do_migration

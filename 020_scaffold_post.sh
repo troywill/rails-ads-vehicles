@@ -1,9 +1,10 @@
 #!/bin/bash
-# <troydwill@gmail.com> October 2010
+# <troydwill@gmail.com> October 17, 2010
 source ./rrp-lib.sh
+
 MODEL='post'
 
-function do_generate () {
+function generate_scaffold () {
     rails generate scaffold ${MODEL} \
 	year:integer \
 	model_id:integer \
@@ -38,7 +39,7 @@ function do_migration () {
 }
 
 ###### Main program #######
-do_generate
+generate_scaffold
 edit_model
 do_migration
 echo "Don't forget to edit foreign key model, if applicable"

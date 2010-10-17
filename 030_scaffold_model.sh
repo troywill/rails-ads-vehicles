@@ -2,7 +2,7 @@
 source ./rrp-lib.sh
 MODEL='model'
 
-function do_generate () {
+function generate_scaffold () {
     rails generate scaffold ${MODEL} \
 	make_id:integer \
 	name:string \
@@ -30,6 +30,6 @@ function do_migration () {
 
 ###### Main program #######
 
-do_generate
+generate_scaffold
 edit_model
 do_migration
