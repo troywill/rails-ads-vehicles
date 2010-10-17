@@ -1,0 +1,3 @@
+run layout.pl
+mv css.html ../../app/views/welcome/index.html.erb
+mv style.css ../../public/stylesheets/

@@ -11,6 +11,7 @@ function generate_scaffold () {
 	model_id:integer \
 	mileage:integer \
 	isforsale:boolean \
+	color_id:integer \
 	city_id:integer \
 	ad_url:string \
 	ad_date:date \
@@ -29,6 +30,7 @@ function edit_model () {
   validates_numericality_of :year
   belongs_to :model
   belongs_to :city
+  belongs_to :color
 EOF
 
     ${EDITOR} ${MODEL_RB}
