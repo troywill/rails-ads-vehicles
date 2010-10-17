@@ -11,6 +11,7 @@ function generate_scaffold () {
 	model_id:integer \
 	mileage:integer \
 	isforsale:boolean \
+	isdealer:boolean \
 	color_id:integer \
 	city_id:integer \
 	ad_url:string \
