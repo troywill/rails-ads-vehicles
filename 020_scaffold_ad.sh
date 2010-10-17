@@ -2,7 +2,7 @@
 # <troydwill@gmail.com> October 17, 2010
 source ./rrp-lib.sh
 
-MODEL='post'
+MODEL='ad'
 
 function generate_scaffold () {
     # foreign keys 
