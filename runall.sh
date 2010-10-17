@@ -9,7 +9,8 @@ for SCRIPT in 010_controller_welcome.sh \
     040_scaffold_make.sh \
     050_scaffold_city.sh \
     060_scaffold_search.sh \
-    070_scaffold_settings.sh; do
+    070_scaffold_settings.sh \
+    080_scaffold_links.sh; do
     ${EDITOR} ${SCRIPT}
     echo "=> Run /bin/bash ${SCRIPT}?: <any key to continue>";
     read $answer
