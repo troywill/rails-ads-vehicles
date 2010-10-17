@@ -10,10 +10,10 @@ use strict;
 # Tip: Ask yourself which view will have the selection code. The model associated with this view
 # will be the child model
 
-my $child = 'model'; # The child table singularized, e.g. 'model'
+my $child = 'post'; # The child table singularized, e.g. 'model'
 
-my $foreign_key = 'make_id'; # The foreign key in the child table, e.g. 'make_id'
-my $foreign_model = 'Make'; # The model of the parent table, e.g. 'Make'
+my $foreign_key = 'city_id'; # The foreign key in the child table, e.g. 'make_id'
+my $foreign_model = 'City'; # The model of the parent table, e.g. 'Make'
 my $foreign_attribute = 'name'; # The thing you want to lookup in the foreign table, e.g. 'name'
 
 # Tip 1: the table that belongs_to another table is the child table
