@@ -12,9 +12,9 @@
 
 <% @ads.each do |ad| %>
   <tr>
-    <td style="text-align: right; color:sienna;"><%= number_to_currency ad.ad_price, :precision => 0 %></td>
+    <td style="text-align: right; color:#A0522D;"><%= number_to_currency ad.ad_price, :precision => 0 %></td>
     <td><%= ad.year %> <%= link_to "#{ad.model.make.name} #{ad.model.name}", ad.ad_url %>, <%= link_to "#{ad.city.name}", "/cities/#{ad.city.id}" %></td>
-    <td style="text-align: right; color:sienna; font-style:italic"><%= number_to_human ad.mileage, :precision => 0 %></td>
+    <td style="text-align: right; color:#A0522D; font-style:italic"><%= number_to_human ad.mileage, :precision => 0 %></td>
     <td><%= ad.contact_phone %></td>
     <td><%= link_to 'Show', ad %> / <%= link_to 'D', ad, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
