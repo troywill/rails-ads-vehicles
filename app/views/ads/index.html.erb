@@ -1,0 +1,40 @@
+<h1>Your Vehicles</h1>
+
+<table>
+  <tr>
+    <th>Price</th>
+    <th>Vehicle</th>
+    <th>Miles</th>
+    <th>Contact<br />phone</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ads.each do |ad| %>
+  <tr>
+    <td style="text-align: right; color:sienna;"><%= number_to_currency ad.ad_price, :precision => 0 %></td>
+    <td><%= ad.year %> <%= link_to "#{ad.model.make.name} #{ad.model.name}", ad.ad_url %>, <%= link_to "#{ad.city.name}", "/cities/#{ad.city.id}" %></td>
+    <td style="text-align: right; color:sienna; font-style:italic"><%= number_to_human ad.mileage, :precision => 0 %></td>
+    <td><%= ad.contact_phone %></td>
+    <td><%= link_to 'Show', ad %> / <%= link_to 'D', ad, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ad', new_ad_path %>
+
+<!-- ad.year -->
+<!-- ad.model_id -->
+<!-- ad.mileage -->
+<!-- ad.isforsale -->
+<!-- ad.city_id -->
+<!-- ad.ad_url -->
+<!-- ad.ad_date -->
+<!-- ad.ad_price -->
+<!-- ad.contact_name -->
+<!-- ad.contact_phone -->
+<!-- ad.contact_email -->
+<!-- ad.contact_log -->
+<!-- ad.notes -->
