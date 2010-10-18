@@ -1,1 +1,3 @@
+2010-10-18: Put app/view/welcome/index.html.erb into repository.
+            Copy or sybolically link into application.
 October 17, 2010: Added isdealer boolean to ad model
