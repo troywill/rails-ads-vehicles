@@ -7,25 +7,25 @@
 </p>
 <p>
   The code I used to develop this web application resides in <%= link_to "GitHub", "http://github.com" %> repositories at <%= link_to "rails-ads-vehicles", "http://github.com/troywill/rails-ads-vehicles" %> and <%= link_to "css2-fixed-positioning-layout", "http://github.com/troywill/css2-fixed-positioning-layout" %>. Here's a broad list of the steps I used to implement this application in Ruby on Rails:
-  <ul>
-    <li>Run "rails new mynewapp" to create the initial application structure.</li>
-    <li>Change mynewapp/vendor and clone or pull the code in <%= link_to "rails-ads-vehicles", "http://github.com/troywill/rails-ads-vehicles" %> and <%= link_to "css2-fixed-positioning-layout", "http://github.com/troywill/css2-fixed-positioning-layout" %>.</li>
-    <li>Run through shell scripts that generate the welcome controller, scaffolds, and model relationships:
-      <ol>
-	<li><%= link_to "010_controller_welcome.sh", "http://github.com/troywill/rails-ads-vehicles/blob/master/010_controller_welcome.sh" %></li>
-	<li><%= link_to "020_scaffold_ad.sh", "http://github.com/troywill/rails-ads-vehicles/blob/master/020_scaffold_ad.sh" %></li>
-	<li><%= link_to "025_scaffold_color.sh", "http://github.com/troywill/rails-ads-vehicles/blob/master/025_scaffold_color.sh" %></li>
-	<li><%= link_to "030_scaffold_model.sh", "http://github.com/troywill/rails-ads-vehicles/blob/master/030_scaffold_model.sh" %></li>
-	<li><%= link_to "040_scaffold_make.sh", "http://github.com/troywill/rails-ads-vehicles/blob/master/040_scaffold_make.sh" %></li>
-	<li><%= link_to "050_scaffold_city.sh", "http://github.com/troywill/rails-ads-vehicles/blob/master/050_scaffold_city.sh" %></li>
-	<li><%= link_to "060_scaffold_search.sh", "http://github.com/troywill/rails-ads-vehicles/blob/master/060_scaffold_search.sh" %></li>
-</li>
+</p>
+<ul>
+  <li>Run "rails new mynewapp" to create the initial application structure.</li>
+  <li>Change mynewapp/vendor and clone or pull the code in <%= link_to "rails-ads-vehicles", "http://github.com/troywill/rails-ads-vehicles" %> and <%= link_to "css2-fixed-positioning-layout", "http://github.com/troywill/css2-fixed-positioning-layout" %>.</li>
+  <li>Run through shell scripts that generate the welcome controller, scaffolds, and model relationships:
+    <ol>
+      <li><%= link_to "010_controller_welcome.sh", "http://github.com/troywill/rails-ads-vehicles/blob/master/010_controller_welcome.sh" %></li>
+      <li><%= link_to "020_scaffold_ad.sh", "http://github.com/troywill/rails-ads-vehicles/blob/master/020_scaffold_ad.sh" %></li>
+      <li><%= link_to "025_scaffold_color.sh", "http://github.com/troywill/rails-ads-vehicles/blob/master/025_scaffold_color.sh" %></li>
+      <li><%= link_to "030_scaffold_model.sh", "http://github.com/troywill/rails-ads-vehicles/blob/master/030_scaffold_model.sh" %></li>
+      <li><%= link_to "040_scaffold_make.sh", "http://github.com/troywill/rails-ads-vehicles/blob/master/040_scaffold_make.sh" %></li>
+      <li><%= link_to "050_scaffold_city.sh", "http://github.com/troywill/rails-ads-vehicles/blob/master/050_scaffold_city.sh" %></li>
+      <li><%= link_to "060_scaffold_search.sh", "http://github.com/troywill/rails-ads-vehicles/blob/master/060_scaffold_search.sh" %></li>
     </ol>
-  </ul>
-    <p>These seven shell scripts ( 010_controller_welcome_sh ... 060_scaffold_search.sh ) automate the process of creating the models, adding validations and relationships, and running migrations. If you wish to add new model attributes just edit the script before you run it.</p>
-    <p>The <%= link_to "Ad", "http://github.com/troywill/rails-ads-vehicles/blob/master/020_scaffold_ad.sh" %> <%= link_to "MVC", "http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller" %> model has <%= link_to "belong_to", "http://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html#method-i-belongs_to" %> relationships to the (Vehicle) Model, City, and Color MVC models. The ad table has three foreign keys: make_id, city_id, and color_id. They connect to normalized model, city, and color tables, respectively. This makes the selection of vehicle model, city, and color easy to do with selection boxes and reduces data anonolmies getting introduced.</p>
-
-
-
-
-    
+  </li>
+</ul>
+<p>
+  These seven shell scripts ( 010_controller_welcome_sh ... 060_scaffold_search.sh ) automate the process of creating the models, adding validations and relationships, and running migrations. If you wish to add new model attributes just edit the script before you run it.
+</p>
+<p>
+  The <%= link_to "Ad", "http://github.com/troywill/rails-ads-vehicles/blob/master/020_scaffold_ad.sh" %> <%= link_to "MVC", "http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller" %> model has <%= link_to "belong_to", "http://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html#method-i-belongs_to" %> relationships to the (Vehicle) Model, City, and Color MVC models. The ad table has three foreign keys: make_id, city_id, and color_id. They connect to normalized model, city, and color tables, respectively. This makes the selection of vehicle model, city, and color easy to do with selection boxes and reduces data anonolmies getting introduced.
+</p>
