@@ -1,0 +1,12 @@
+<% @models.each do |model| %>
+  <h1><%= model.name %></h1>
+  <p>
+    <% @ads.each do |ad| %>
+      <% if ( ad.model.id == model.id ) %>
+    <span style="text-align: right; color:#A0522D;"><%= number_to_currency ad.ad_price, :precision => 0 %></span>
+    <%= ad.year %> (<%= link_to "#{ad.city.name}", "/cities/#{ad.city.id}" %>) <span style="text-align: right; color:#A0522D; font-style:italic"><%= number_to_human ad.mileage, :precision => 0 %></span> <%= link_to "View ad", ad.ad_url %>
+    <td><%= ad.contact_phone %></td>
+    <% end %>
+    <% end %>
+  </p>
+<% end %>
