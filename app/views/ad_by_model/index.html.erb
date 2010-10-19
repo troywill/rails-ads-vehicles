@@ -1,12 +1,11 @@
+<h1>Your saved vehicles, grouped by model</h1>
 <% @models.each do |model| %>
-  <h1><%= model.name %></h1>
-  <p>
+  <h2><%= model.make.name %> <%= model.name %></h2>
+  <ul>
     <% @ads.each do |ad| %>
-      <% if ( ad.model.id == model.id ) %>
-    <span style="text-align: right; color:#A0522D;"><%= number_to_currency ad.ad_price, :precision => 0 %></span>
-    <%= ad.year %> (<%= link_to "#{ad.city.name}", "/cities/#{ad.city.id}" %>) <span style="text-align: right; color:#A0522D; font-style:italic"><%= number_to_human ad.mileage, :precision => 0 %></span> <%= link_to "View ad", ad.ad_url %>
-    <td><%= ad.contact_phone %></td>
+    <% if ( ad.model.id == model.id ) %>
+    <li><span style="text-align: right; color:#A0522D;"><%= number_to_currency ad.ad_price, :precision => 0 %></span>, <%= ad.year %>, <%= number_to_human ad.mileage, :precision => 0 %> miles</span>, Ph <%= ad.contact_phone %>, (<%= link_to "#{ad.city.name}", "/cities/#{ad.city.id}" %>) <span style="text-align: right; color:#A0522D; font-style:italic">  <%= link_to "View ad", ad.ad_url %></li>
     <% end %>
-    <% end %>
-  </p>
+  <% end %>
+  </ul>
 <% end %>
