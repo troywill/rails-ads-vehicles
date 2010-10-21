@@ -1,3 +1,4 @@
+#!/bin/bash
 source ./rrp-lib.sh
 LOGIN_PAGE="${TOP_DIR}/app/views/welcome/login.html.erb"
 

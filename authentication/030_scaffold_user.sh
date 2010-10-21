@@ -1,3 +1,4 @@
+#!/bin/bas
 source ./rrp-lib.sh
 NAME='user'
 
