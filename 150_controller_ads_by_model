@@ -1,3 +1,2 @@
 #!/bin/bash
 rails generate controller ads_by_model index
-
