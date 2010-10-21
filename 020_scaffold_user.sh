@@ -26,6 +26,5 @@ EOF
 }
 
 generate_scaffold
-exit
 edit_model
 read -p "Run rake db:migrate? " && rake db:migrate
