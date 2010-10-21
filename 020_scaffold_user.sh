@@ -1,10 +1,9 @@
 #!/bin/bash
 source ./rrp-lib.sh
 MODEL='user'
-SCAFFOLD_COMMAND="rails generate scaffold"
 
 function generate_scaffold () {
-    ${SCAFFOLD_COMMAND} ${MODEL} \
+    rails generate scaffold ${MODEL} \
 	name:string \
 	username:string \
 	password:string \
@@ -27,5 +26,6 @@ EOF
 }
 
 generate_scaffold
+exit
 edit_model
 read -p "Run rake db:migrate? " && rake db:migrate
