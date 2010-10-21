@@ -1,14 +1,11 @@
-# rails console, either
-# load '/full/path/to/this/file.rb'
-#             or
-# require '/full/path/to/this/file.rb'
+# rails console < 'path/to/this/file.rb'
 
 username = 'troy'
 password = 'troy'
 
 User.create( :name => 'Troy Will', 
-             :username => username',
-             :password => password',
+             :username => username,
+             :password => password,
              :email => 'troydwill@gmail.com',
              :homepage => 'http://troywill.com',
              :twitter => 'http://twitter.com/troydwill',
@@ -19,4 +16,3 @@ User.create( :name => 'Troy Will',
 )
 
 user = User.find_by_username(username)
-

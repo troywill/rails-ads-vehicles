@@ -5,6 +5,7 @@ source ./rrp-lib.sh
 
 for SCRIPT in 010_controller_welcome.sh \
     020_scaffold_user.sh \
+    025_add_default_user.sh \
     030_identify_user.sh \
     040_login_form.sh \
     050_edit_login_in_welcome.sh \

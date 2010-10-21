@@ -13,7 +13,6 @@ function add_before_filter_to_application_controller () {
     APPLICATION_CONTROLLER="${TOP_DIR}/app/controllers/application_controller.rb"
 
     cat >> ${APPLICATION_CONTROLLER} <<EOF
-# place after the class line
   before_filter :identify_user, :except => :login
 
   def identify_user
