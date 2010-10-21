@@ -10,22 +10,15 @@ function generate_scaffold () {
 function edit_model () {
     MODEL_RB="${TOP_DIR}/app/models/${MODEL}.rb"
     cat >> ${MODEL_RB} <<EOF
-validates_presence_of :name
-validates_uniqueness_of :name
+validates :name, :presence => true, :uniqueness => true
 EOF
 
     $EDITOR ${MODEL_RB}
-
     echo "Don't forget to edit foreign key model, if applicable"
-    
-}
-
-function do_migration () {
-    rake db:migrate
 }
 
 ###### Main program #######
 
 generate_scaffold
 edit_model
-do_migration
+read -p "Run rake db:migrate? " && rake db:migrate

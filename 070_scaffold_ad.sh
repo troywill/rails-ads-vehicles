@@ -28,8 +28,8 @@ function generate_scaffold () {
 function edit_model () {
     MODEL_RB="${TOP_DIR}/app/models/${MODEL}.rb"
     cat >> ${MODEL_RB} <<EOF
-  validates:year, :presence => true, :numericality => true
-  validates:user_id, :presence => true, :numericality => true
+  validates :year, :presence => true, :numericality => true
+  validates :user_id, :presence => true, :numericality => true
   belongs_to :user
   belongs_to :model
   belongs_to :city

@@ -16,7 +16,8 @@ function generate_scaffold () {
 function edit_model () {
     MODEL_RB="${TOP_DIR}/app/models/${MODEL}.rb"
     cat >> ${MODEL_RB} <<EOF
-  validates_presence_of :name
+  validates :user_id, :presence => true, :numericality => true
+  validates :name, :presence => true
   has_many :posts
 EOF
 
@@ -25,13 +26,7 @@ EOF
     
 }
 
-function do_migration () {
-    echo "Run db:migrate?"
-    rake db:migrate
-}
-
 ###### Main program #######
-
 generate_scaffold
 edit_model
-do_migration
+read -p "Run db:migrate? " && rake db:migrate

@@ -4,6 +4,7 @@ MODEL="search"
 
 function generate_scaffold () {
     rails generate scaffold ${MODEL} \
+	user_id:string \
 	name:string \
 	url:string \
 	last_search:date
@@ -12,7 +13,8 @@ function generate_scaffold () {
 function edit_model () {
     MODEL_RB="${TOP_DIR}/app/models/${MODEL}.rb"
     cat >> ${MODEL_RB} <<EOF
-  validates_presence_of :name
+  validates :user_id, :presence => true, :numericality => true
+  validates :name, :presence => true
 EOF
 
     $EDITOR ${MODEL_RB}

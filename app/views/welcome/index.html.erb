@@ -1,4 +1,5 @@
 <h1>Welcome!</h1>
+<h1><%= @current_user.id  %></h1>
 <p>
   This web application will help you organize and track classified ads such those on <%= link_to "Craig's List", "http://www.craigslist.org" %> and is built with <%= link_to "Ruby on Rails", "http://www.rubyonrails.org" %>. Let's say you are in the market to buy a used <%= link_to "Chrysler Sebring", "http://en.wikipedia.org/wiki/Chrysler_Sebring" %>. With this web application you could create a <%= link_to "custom search", searches_path %> to search <%= link_to "Craig's List in Los Angeles for Chrysler Sebrings's", "http://losangeles.craigslist.org/search/sss?query=sebring+conv%7Cconvertible&srchType=T&minAsk=&maxAsk=" %>. Create as many custom searches as you like. If you find a vehicle you like using your saved searches add it to your database. You'll be able to track the vehicles you're interested in by price, mileage, location, etc. and have ready contact informaton to the seller.
 </p>
