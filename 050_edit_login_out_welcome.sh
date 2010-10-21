@@ -26,3 +26,7 @@ EOF
 ${EDITOR} ${WELCOME_CONTROLLER}
 
 }
+
+#### Main program
+
+edit_login_logout_methods
