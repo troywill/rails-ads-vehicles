@@ -4,7 +4,8 @@ source ./rrp-lib.sh
 MODEL="link"
 
 function generate_scaffold () {
-    rails generate scaffold ${MODEL} name:string \
+    rails generate scaffold ${MODEL} \
+	user_id:integer \
 	name:string \
 	description:string \
 	url:string \

@@ -8,7 +8,6 @@ function check_admin_user () {
     read -e DUMMY
 }
 
-
 function add_before_filter_to_application_controller () {
     APPLICATION_CONTROLLER="${TOP_DIR}/app/controllers/application_controller.rb"
 

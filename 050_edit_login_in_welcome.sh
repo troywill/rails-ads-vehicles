@@ -1,3 +1,4 @@
+#!/bin/bash
 source ./rrp-lib.sh
 WELCOME_CONTROLLER="${TOP_DIR}/app/controllers/welcome_controller.rb"
 

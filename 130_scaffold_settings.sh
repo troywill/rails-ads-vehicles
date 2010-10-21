@@ -4,6 +4,7 @@ MODEL="setting"
 
 function generate_scaffold () {
     rails generate scaffold ${MODEL} \
+	user_id:integer \
 	name:string \
 	email:string \
 	phone:string \
