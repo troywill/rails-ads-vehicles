@@ -5,4 +5,3 @@ rails generate controller ads_by_model index
 ROUTES_FILE="${TOP_DIR}/config/routes.rb"
 echo 'get "ads_by_model/index"' >> ${ROUTES_FILE}
 ${EDITOR} ${ROUTES_FILE}
-

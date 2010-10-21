@@ -2,7 +2,7 @@
 source ./rrp-lib.sh
 WELCOME_CONTROLLER="${TOP_DIR}/app/controllers/welcome_controller.rb"
 
-function edit_login_method () {
+function edit_login_logout_methods () {
 
 cat >> ${WELCOME_CONTROLLER} <<EOF
 def login
@@ -17,10 +17,12 @@ def login
     end
   end
 end
+
+def logout
+  session[:user_id] = nil
+end
 EOF
 
 ${EDITOR} ${WELCOME_CONTROLLER}
 
 }
-
-edit_login_method

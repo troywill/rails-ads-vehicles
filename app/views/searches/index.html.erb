@@ -1,0 +1,7 @@
+<h1>Your saved Searches</h1>
+<ul>
+<% @searches.each do |search| %>
+    <li><%= link_to search.name, search.url %>, <%= search.last_search %> <%= link_to 'S', search %> <%= link_to 'E', edit_search_path(search) %> <%= link_to 'D', search, :confirm => 'Are you sure?', :method => :delete %></li>
+<% end %>
+<br />
+<%= link_to 'New Search', new_search_path %>
