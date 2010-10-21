@@ -7,6 +7,7 @@ MODEL='ad'
 function generate_scaffold () {
     # foreign keys 
     rails generate scaffold ${MODEL} \
+	user_id:integer \
 	year:integer \
 	model_id:integer \
 	mileage:integer \
@@ -27,25 +28,19 @@ function generate_scaffold () {
 function edit_model () {
     MODEL_RB="${TOP_DIR}/app/models/${MODEL}.rb"
     cat >> ${MODEL_RB} <<EOF
-  validates_presence_of :year
-  validates_numericality_of :year
+  validates:year, :presence => true, :numericality => true
+  validates:user_id, :presence => true, :numericality => true
+  belongs_to :user
   belongs_to :model
   belongs_to :city
   belongs_to :color
 EOF
 
     ${EDITOR} ${MODEL_RB}
-    
-    echo "Don't forget to edit foreign key model, if applicable"
-    
-}
-
-function do_migration () {
-    rake db:migrate
 }
 
 ###### Main program #######
 generate_scaffold
 edit_model
-do_migration
+read -p "Run rake db:migrate? " && rake db:migrate
 echo "Don't forget to edit foreign key model, if applicable"
