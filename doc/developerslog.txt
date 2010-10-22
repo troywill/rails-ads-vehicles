@@ -1,0 +1,5 @@
+<2010-10-21>
+In app/models/model.rb
+  @models = Model.find_all_by_user_id(session[:user_id])
+( We only want to see the vehicle models of the current logged in user )
+</2010-10-21>
