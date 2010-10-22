@@ -6,6 +6,7 @@ MODEL='city'
 function generate_scaffold () {
     rails generate scaffold ${MODEL} \
 	name:string \
+	zip_code:integer \
 	lat:float \
 	long:float \
 	travel_time:integer \
