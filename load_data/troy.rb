@@ -39,4 +39,3 @@ Search.create( :user_id => user.id,
                :name => "Burgman 650, Craig's List Orange County",
                :url => 'http://orangecounty.craigslist.org/search/sss?query=Burgman&srchType=T&minAsk=&maxAsk='
                )
-
