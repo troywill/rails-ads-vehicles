@@ -30,6 +30,7 @@ function edit_model () {
     cat >> ${MODEL_RB} <<EOF
   validates :year, :presence => true, :numericality => true
   validates :user_id, :presence => true, :numericality => true
+  validates :model_id, :presence => true, :numericality => true
   belongs_to :user
   belongs_to :model
   belongs_to :city
