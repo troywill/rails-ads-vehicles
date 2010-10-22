@@ -14,7 +14,7 @@ function edit_model () {
     MODEL_RB="${TOP_DIR}/app/models/${MODEL}.rb"
     cat >> ${MODEL_RB} <<EOF
   validates :user_id, :presence => true, :numericality => true
-  validates :name, :presence => true, :uniqueness => true
+  validates :name, :presence => true
 EOF
 
     $EDITOR ${MODEL_RB}

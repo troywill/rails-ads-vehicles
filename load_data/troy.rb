@@ -15,8 +15,8 @@ User.create( :name => 'Troy Will',
              :homepage => homepage,
              :twitter => twitter,
              :facebook => facebook,
-             :share_models => 'true'
-             :share_contact => 'true'
+             :share_models => 'true',
+             :share_contact => 'true',
              :zip_code => 91711
 )
 
