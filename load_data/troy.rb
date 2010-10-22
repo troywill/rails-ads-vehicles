@@ -8,7 +8,6 @@ share_models = 'true'
 share_contact = 'true'
 zip_code = 91711
 
-
 User.create( :name => 'Troy Will', 
              :username => username,
              :password => password,
@@ -24,44 +23,20 @@ User.create( :name => 'Troy Will',
 user = User.find_by_username(username)
 user_id = user.id
 
-# Suzuki
+# Create some vehicle makes
 Make.create( :user_id => user_id, :name => 'Suzuki' )
 Make.create( :user_id => user_id, :name => 'Honda' )
 Make.create( :user_id => user_id, :name => 'Yamaha' )
 Make.create( :user_id => user_id, :name => 'Chevrolet' )
 Make.create( :user_id => user_id, :name => 'Chrysler' )
 
-# Suzuki Burgman
+# Create some vehicle models Suzuki Burgman
 Model.create( :user_id => user_id, :make_id => Make.find_by_name('Suzuki').id, :name => 'Burgman 650' )
 
-# Intial Search
-
-#   create_table "searches", :force => true do |t|
-#     t.string   "user_id"
-#     t.string   "name"
-#     t.string   "url"
-#     t.date     "last_search"
-#     t.datetime "created_at"
-#     t.datetime "updated_at"
-#   end
+# Create some vehicle searches
 
 Search.create( :user_id => user.id,
                :name => "Burgman 650, Craig's List Orange County",
                :url => 'http://orangecounty.craigslist.org/search/sss?query=Burgman&srchType=T&minAsk=&maxAsk='
                )
 
-# See http://www.buyingadvice.com/auto-buying-tips/popular-car-colors/
-
-Color.create([{ :name => 'Silver' }, { :name => 'White' }, { :name => 'Gray' }, { :name => 'Blue' }, { :name => 'Black' }, { :name => 'Red' }])
-
-# ActiveRecord::Schema.define(:version => 20101021213345) do
-
-#   create_table "ads", :force => true do |t|
-#     t.integer  "user_id"
-#     t.integer  "year"
-#     t.integer  "model_id"
-#     t.integer  "mileage"
-#     t.boolean  "isforsale"
-#     t.boolean  "isdealer"
-#     t.integer  "color_id"
-#     t.integer  "city_id"
