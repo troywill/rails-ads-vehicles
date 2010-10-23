@@ -1,4 +1,5 @@
 username = 'marv'
+user = User.find_by_username(username)
 
 # Create some vehicle searches
 
