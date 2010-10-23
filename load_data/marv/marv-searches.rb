@@ -27,6 +27,6 @@ Search.create( :user_id => user.id,
                )
 
 Search.create( :user_id => user.id,
-               :name => "Corvette Convertible, Craig's List Inland Empire (Title only)",
+               :name => "Corvette convertible, Craig's List Inland Empire (Title only)",
                :url => 'http://inlandempire.craigslist.org/search/cta?query=corvette+convertible&srchType=T&minAsk=&maxAsk='
                )
