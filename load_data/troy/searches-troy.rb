@@ -16,3 +16,8 @@ Search.create( :user_id => user.id,
                :name => "Burgman, Craig's List Los Angeles",
                :url => 'http://losangeles.craigslist.org/search/mcy?query=Burgman&srchType=A&minAsk=&maxAsk='
                )
+
+Search.create( :user_id => user.id,
+               :name => "Burgman, Craig's List Ventura",
+               :url => "http://ventura.craigslist.org/search/mcy?query=burgman&srchType=A&minAsk=&maxAsk="
+               )
