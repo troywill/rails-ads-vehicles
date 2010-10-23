@@ -8,9 +8,7 @@
     <% if ( ad.model.id == model.id ) %>
         <li><span style="text-align: right; color:#A0522D;"><%= number_to_currency ad.ad_price, :precision => 0 %></span>, <%= ad.year %>, <%= number_to_human ad.mileage, :precision => 0 %> miles</span>, Ph <%= ad.contact_phone %>, <span style="text-align: right; color:#A0522D; font-style:italic"><%= link_to "View online ad", ad.ad_url %></span>
 
-
-
-<%= render :partial => "citymap", :locals => { :ad => ad } %></li>
+<%= render :partial => "citymap", :locals => { :ad => ad } %><%= link_to 'E', edit_ad_path(ad) %></li>
     <% end %>
   <% end %>
   </ul>

@@ -1,5 +1,7 @@
+City.create( :name => 'Alhambra' , :lat=> 34.081944 , :long => -118.135 )
 City.create( :name => 'Bellflower', :lat=>33.888056, :long=> -118.1275 )
 City.create( :name => 'Garden Grove', :lat=>33.778889, :long=> -117.960278 )
+City.create( :name => 'Hermosa Beach' , :lat=> 33.866389 , :long => -118.399722 )
 City.create( :name => 'North Hollywood', :lat=> 34.17222, :long => -118.37806 )
 City.create( :name => 'Northridge', :lat=>34.228056, :long=>-118.535833 )
 City.create( :name => 'Pacoima', :lat=> 34.2625, :long => -118.42611 )
