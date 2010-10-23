@@ -1,8 +1,8 @@
 <h1>Your saved vehicles, grouped by model</h1>
 <% @models.each do |model| %>
   <h2><%= model.make.name %> <%= model.name %></h2>
-  <img src="<%= model.image_url %>">
-    <ul>
+  <% if model.image_url %><img src="<%= model.image_url %>" style="float: left;padding-right:10px;margin-right:10px"><% end %>
+    <ul style="margin-left";>
     <% @ads.each do |ad| %>
     <% if ( ad.model.id == model.id ) %>
         <li><span style="text-align: right; color:#A0522D;"><%= number_to_currency ad.ad_price, :precision => 0 %></span>, <%= ad.year %>, <%= number_to_human ad.mileage, :precision => 0 %> miles</span>, Ph <%= ad.contact_phone %>,  <span style="text-align: right; color:#A0522D; font-style:italic">  <%= link_to "View ad", ad.ad_url %></li>
