@@ -16,16 +16,11 @@
       <h1>View</h1>
       <ul>
 	<li><%= link_to 'Your vehicles', ads_by_model_index_path %></li>
-	<li><%= link_to 'All vehicles', ads_path %></li>
-	<li><%= link_to 'Saved searches', searches_path %></li>
-	<li><%= link_to 'Vehicle Models', models_path %></li>
-	<li><%= link_to 'Cities', cities_path %></li>
+	<li><%= link_to 'Vehicle searches', searches_path %></li>
       </ul>
       <h1>Add new ...</h1>
       <ul>
 	<li><%= link_to 'Ad', new_ad_path %></li>
-	<li><%= link_to 'Search', new_search_path %></li>
-	<li><%= link_to 'City', new_city_path %></li>
 	<li><%= link_to 'Vehicle Model', new_model_path %></li>
       </ul>
       <h1>Craig's List</h1>
@@ -37,6 +32,9 @@
       <h1>Other</h1>
       <ul>
 	<li><%= link_to "Auto Trader", "http://www.autotrader.com/" %></li>
+	<li><%= link_to 'All vehicles', ads_path %></li>
+	<li><%= link_to 'Vehicle Models', models_path %></li>
+	<li><%= link_to 'Cities', cities_path %></li>
       </ul>
   </div>
   <div id='main'>
