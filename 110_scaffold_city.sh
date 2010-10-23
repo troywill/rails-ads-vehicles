@@ -9,7 +9,7 @@ function generate_scaffold () {
 	zip_code:integer \
 	lat:float \
 	long:float \
-	travel_time:integer \
+	distance:integer \
 	google_link:string \
 	google_embed:string
 }
@@ -17,9 +17,8 @@ function generate_scaffold () {
 function edit_model () {
     MODEL_RB="${TOP_DIR}/app/models/${MODEL}.rb"
     cat >> ${MODEL_RB} <<EOF
-  validates :user_id, :presence => true, :numericality => true
-  validates :name, :presence => true
-  has_many :posts
+  validates :name, :presence => true, :uniqueness => true
+  has_many :ads
 EOF
 
     $EDITOR ${MODEL_RB}
