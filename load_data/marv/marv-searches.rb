@@ -20,3 +20,13 @@ Search.create( :user_id => user.id,
                :name => "Chevrolet SSR, Craig's List Los Angeles",
                :url => 'http://losangeles.craigslist.org/search/cta?query=ssr&srchType=T&minAsk=&maxAsk='
                )
+
+Search.create( :user_id => user.id,
+               :name => "Chevrolet SSR, Craig's List Inland Empire",
+               :url => 'http://inlandempire.craigslist.org/search/cta?query=ssr&srchType=T&minAsk=&maxAsk='
+               )
+
+Search.create( :user_id => user.id,
+               :name => "Corvette Convertible, Craig's List Inland Empire (Title only)",
+               :url => 'http://inlandempire.craigslist.org/search/cta?query=corvette+convertible&srchType=T&minAsk=&maxAsk='
+               )
