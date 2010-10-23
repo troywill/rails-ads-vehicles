@@ -15,6 +15,7 @@ function edit_model () {
     cat >> ${MODEL_RB} <<EOF
   validates :user_id, :presence => true, :numericality => true
   validates :name, :presence => true
+  validates_uniqueness_of :name, :scope => :user_id # different users can have same search name
 EOF
 
     $EDITOR ${MODEL_RB}

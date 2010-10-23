@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+$output_file = "./cities.rb"
+city = ARGV[0]
+lat = ARGV[1]
+long = ARGV[2]
+
+puts "City.create( :name => '#{city}', :lat=> #{lat}, :long => #{long} )"
