@@ -21,3 +21,8 @@ Search.create( :user_id => user.id,
                :name => "Burgman, Craig's List Ventura",
                :url => "http://ventura.craigslist.org/search/mcy?query=burgman&srchType=A&minAsk=&maxAsk="
                )
+
+Search.create( :user_id => user.id,
+               :name => "Toyota Tacoma, Craig's List Inland Empire",
+               :url => 'http://inlandempire.craigslist.org/search/sss?query=toyota+tacoma&srchType=T&minAsk=4000&maxAsk=8000'
+               )

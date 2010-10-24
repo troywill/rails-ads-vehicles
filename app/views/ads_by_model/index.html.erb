@@ -6,7 +6,8 @@
     <ul style="margin-left";>
     <% @ads.each do |ad| %>
     <% if ( ad.model.id == model.id ) %>
-        <li><%= ad.year %>
+        <li><%= render :partial => "new", :locals => { :ad => ad } %>
+<%= ad.year %>
 	  <%= number_to_human( ad.mileage, :precision => 1, :units => { :thousand => "k" }) %>
 	  - <span style="text-align: right; color:#A0522D;"><%= number_to_currency (((ad.ad_price/100.0)+0.5).to_i)*100, :precision => 0 %></span>
 
@@ -15,11 +16,6 @@
 	  <span style="font-style:italic"><%= link_to "View online ad", ad.ad_url %></span>
 
 	  <%= number_to_phone ad.contact_phone %>, <%= link_to 'E', edit_ad_path(ad) %>
-
-
-
-
-
 	</li>
     <% end %>
   <% end %>
