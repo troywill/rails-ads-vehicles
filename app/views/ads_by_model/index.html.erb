@@ -8,8 +8,8 @@
     <% if ( ad.model.id == model.id ) %>
         <li><%= render :partial => "new", :locals => { :ad => ad } %>
 <%= ad.year %>
-	  <%= number_to_human( ad.mileage, :precision => 1, :units => { :thousand => "k" }) %>
-	  - <span style="text-align: right; color:#A0522D;"><%= number_to_currency (((ad.ad_price/100.0)+0.5).to_i)*100, :precision => 0 %></span>
+	  <%= number_to_human( ad.mileage, :precision => 2, :units => { :thousand => "k" }) %>
+	  - <span style="text-align: right; color:#A0522D;"><%= number_to_currency (((ad.ad_price/50.0)+0.5).to_i)*50, :precision => 0 %></span>
 
 	  ( <%= render :partial => "citymap", :locals => { :ad => ad } %> )
 	  
