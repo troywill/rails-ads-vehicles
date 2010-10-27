@@ -16,26 +16,14 @@
       <h1>View</h1>
       <ul>
 	<li><%= link_to 'Your vehicles', ads_by_model_index_path %></li>
-	<li><%= link_to 'Vehicle searches', searches_path %></li>
+	<li><%= link_to 'Your searches', searches_path %></li>
       </ul>
-      <h1>Add new ...</h1>
-      <ul>
-	<li><%= link_to 'Ad', new_ad_path %></li>
-	<li><%= link_to 'Vehicle Model', new_model_path %></li>
-      </ul>
-      <h1>Craig's List</h1>
-      <ul>
-	<li><%= link_to "Los Angeles", "http://losangeles.craigslist.org/" %></li>
-	<li><%= link_to "Orange County", "http://orangecounty.craigslist.org/" %></li>
-	<li><%= link_to "Inland Empire", "http://inlandempire.craigslist.org/" %></li>
-      </ul>
-      <h1>Other</h1>
-      <ul>
-	<li><%= link_to "Auto Trader", "http://www.autotrader.com/" %></li>
-	<li><%= link_to 'All vehicles', ads_path %></li>
-	<li><%= link_to 'Vehicle Models', models_path %></li>
-	<li><%= link_to 'Cities', cities_path %></li>
-      </ul>
+      <% if defined?(@searches) %>
+        <% for search in @searches %>
+          <%= render :partial => "searches/searches", :locals => { :search => search } %>
+	  <hr />
+        <% end %>
+      <% end %>
   </div>
   <div id='main'>
     <%= yield %>
