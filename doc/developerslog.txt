@@ -1,5 +1,10 @@
-<2010-10-21>
+[2010-10-28]
+In app/models.rb:
+self.ad_price = 0 unless self.status
+Remove notes field from frame_search
+* Need to add default value of 0 in add price
+[2010-10-21]
 In app/models/model.rb
   @models = Model.find_all_by_user_id(session[:user_id])
 ( We only want to see the vehicle models of the current logged in user )
-</2010-10-21>
+
