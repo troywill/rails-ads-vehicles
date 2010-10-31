@@ -11,6 +11,16 @@
 <body>
   <div id='header'>
     [ <%= link_to 'Home', "/" %> ] | [ <%= link_to 'Log In', "/welcome/login" %> ] | [ <%= link_to 'Log Out', "/welcome/logout" %> ]
+
+
+
+
+    <!-- Lookup Phone Number -->
+<%= form_tag( '/by_phone', :method => :get ) %>
+<input id="phone" name="phone" size="15" type="text" />
+</form>
+      
+    
   </div>
   <div id='sidebar'>
       <h1>View</h1>
