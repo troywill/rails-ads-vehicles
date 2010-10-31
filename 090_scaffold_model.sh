@@ -8,9 +8,7 @@ function generate_scaffold () {
 	user_id:integer \
 	make_id:integer \
 	name:string \
-	image_url:string \
-	wikipedia:string \
-	url:string
+	image_url:string
 }
 
 function edit_model () {
@@ -28,4 +26,4 @@ EOF
 ###### Main program #######
 generate_scaffold
 edit_model
-read -p "Run db:migrate? " && rake db:migrate
+# read -p "Run db:migrate? " && rake db:migrate

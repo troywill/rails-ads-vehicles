@@ -5,6 +5,7 @@ MODEL="search"
 function generate_scaffold () {
     rails generate scaffold ${MODEL} \
 	user_id:string \
+	site_id:string \
 	name:string \
 	url:string \
 	last_search:date
