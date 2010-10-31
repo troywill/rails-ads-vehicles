@@ -8,20 +8,18 @@ function generate_scaffold () {
     # foreign keys 
     rails generate scaffold ${MODEL} \
 	user_id:integer \
-	year:integer \
 	model_id:integer \
-	mileage:integer \
-	isforsale:boolean \
-	isdealer:boolean \
 	color_id:integer \
 	city_id:integer \
-	ad_url:string \
+	year:integer \
+	mileage:integer \
+	forsale:boolean \
+	dealer:boolean \
+	url:string \
 	ad_date:date \
 	ad_price:integer \
 	contact_name:string \
 	contact_phone:string \
-	contact_email:string \
-	contact_log:text \
 	notes:text
 }
 
@@ -43,5 +41,5 @@ EOF
 ###### Main program #######
 generate_scaffold
 edit_model
-read -p "Run rake db:migrate? " && rake db:migrate
+# read -p "Run rake db:migrate? " && rake db:migrate
 echo "Don't forget to edit foreign key model, if applicable"
