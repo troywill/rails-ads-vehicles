@@ -12,9 +12,6 @@
   <div id='header'>
     [ <%= link_to 'Home', "/" %> ] | [ <%= link_to 'Log In', "/welcome/login" %> ] | [ <%= link_to 'Log Out', "/welcome/logout" %> ]
 
-
-
-
     <!-- Lookup Phone Number -->
 <%= form_tag( '/by_phone', :method => :get ) %>
 <input id="phone" name="phone" size="15" type="text" />
@@ -28,12 +25,6 @@
 	<li><%= link_to 'Your vehicles', ads_by_model_index_path %></li>
 	<li><%= link_to 'Your searches', searches_path %></li>
       </ul>
-      <% if defined?(@searches) %>
-        <% for search in @searches %>
-          <%= render :partial => "searches/searches", :locals => { :search => search } %>
-	  <hr />
-        <% end %>
-      <% end %>
   </div>
   <div id='main'>
     <%= yield %>
