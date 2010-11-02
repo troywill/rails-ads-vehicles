@@ -6,16 +6,15 @@
     <ul style="margin-left";>
     <% @ads.each do |ad| %>
     <% if ( ad.model.id == model.id ) %>
-        <li><%= render :partial => "new", :locals => { :ad => ad } %>
-<%= ad.year %>
-	  <%= number_to_human( ad.mileage, :precision => 2, :units => { :thousand => "k" }) %>
+        <li>
+	  <%if ad.interesting = true %>
+	  <%= image_tag "star.png" %>
+	  <% end %>
+	  <%= render :partial => "new", :locals => { :ad => ad } %>
+	  <%= link_to "#{ad.year} #{number_to_human(ad.mileage, :precision => 2, :units => { :thousand => "k" }) }", ad.ad_url %>
 	  - <span style="text-align: right; color:#A0522D;"><%= number_to_currency (((ad.ad_price/50.0)+0.5).to_i)*50, :precision => 0 %></span>
-
 	  ( <%= render :partial => "citymap", :locals => { :ad => ad } %> )
-	  
-	  <span style="font-style:italic"><%= link_to "View online ad", ad.ad_url %></span>
-
-	  <%= number_to_phone ad.contact_phone %>, <%= link_to 'E', edit_ad_path(ad) %>
+	  <span><%= number_to_phone ad.contact_phone %></span>, <%= link_to 'E', edit_ad_path(ad) %> <%= link_to "UP", "/ads/#{ad.id}/up" %> <%= link_to "DOWN", "/ads/#{ad.id}/thumbsdown" %>
 	</li>
     <% end %>
   <% end %>

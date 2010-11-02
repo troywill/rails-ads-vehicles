@@ -13,6 +13,7 @@ function generate_scaffold () {
 	city_id:integer \
 	year:integer \
 	mileage:integer \
+	interesting:boolean \
 	forsale:boolean \
 	dealer:boolean \
 	url:string \
