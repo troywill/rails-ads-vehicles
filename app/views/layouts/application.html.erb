@@ -22,9 +22,15 @@
   <div id='sidebar'>
       <h1>View</h1>
       <ul>
-	<li><%= link_to 'Your vehicles', ads_by_model_index_path %></li>
+	<li><%= image_tag('star.png') %> <%= link_to 'Starred', ads_by_model_index_path %></li>
+	<li><%= link_to 'New ads', '/ads/shownew' %></li>
+	<li><%= link_to 'All vehicles', '/ads/all' %></li>
 	<li><%= link_to 'Your searches', searches_path %></li>
 	<li><%= link_to 'Evaluate', '/ads/evaluate' %></li>
+      </ul>
+      <h1>New</h1>
+      <ul>
+	<li><%= link_to 'Ad', new_ad_path %></li>
       </ul>
   </div>
   <div id='main'>
