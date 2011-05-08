@@ -1,28 +1,28 @@
 #!/bin/bash
-# <troydwill@gmail.com> October 17, 2010
+# <troydwill@gmail.com> May 7, 2011
 source ./rrp-lib.sh
 
 MODEL='ad'
 
-function generate_scaffold () {
-    # foreign keys 
+function generate_scaffold_ad () {
     rails generate scaffold ${MODEL} \
-	year:integer \
 	model_id:integer \
-	mileage:integer \
-	isforsale:boolean \
-	isdealer:boolean \
 	color_id:integer \
 	city_id:integer \
+	year:integer \
+	mileage:integer \
 	ad_url:string \
 	ad_date:date \
 	ad_price:integer \
 	contact_name:string \
 	contact_phone:string \
 	contact_email:string \
-	contact_log:text \
 	notes:text
 }
+
+# isforsale:boolean
+# isdealer:boolean
+# contact_log:text
 
 function edit_model () {
     MODEL_RB="${TOP_DIR}/app/models/${MODEL}.rb"
@@ -45,7 +45,7 @@ function do_migration () {
 }
 
 ###### Main program #######
-generate_scaffold
+generate_scaffold_ad
 edit_model
 do_migration
 echo "Don't forget to edit foreign key model, if applicable"
