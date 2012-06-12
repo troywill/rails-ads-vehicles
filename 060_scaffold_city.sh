@@ -3,14 +3,15 @@ source ./rrp-lib.sh
 
 MODEL='city'
 
+# travel_time:integer \
+# google_link:string \
+# google_embed:string
+
 function generate_scaffold () {
     rails generate scaffold ${MODEL} \
 	name:string \
 	lat:float \
-	long:float \
-	travel_time:integer \
-	google_link:string \
-	google_embed:string
+	long:float
 }
 
 function edit_model () {

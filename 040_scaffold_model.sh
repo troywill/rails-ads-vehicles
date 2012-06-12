@@ -3,12 +3,13 @@ source ./rrp-lib.sh
 
 MODEL='model'
 
+
+#	wikipedia:string \
+#	url:string
 function generate_scaffold () {
     rails generate scaffold ${MODEL} \
 	make_id:integer \
-	name:string \
-	wikipedia:string \
-	url:string
+	name:string
 }
 
 function edit_model () {

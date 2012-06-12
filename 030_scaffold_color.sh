@@ -1,4 +1,7 @@
 #!/bin/bash
+set -o errexit
+set -o nounset
+
 source ./rrp-lib.sh
 MODEL="color"
 

@@ -1,4 +1,7 @@
 #!/bin/bash
+set -o errexit
+set -o nounset
+
 # <troydwill@gmail.com> May 7, 2011
 source ./rrp-lib.sh
 

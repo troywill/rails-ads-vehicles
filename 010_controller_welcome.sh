@@ -1,6 +1,7 @@
 #!/bin/bash
-set -o errext
+set -o errexit
 set -o nounset
+set -o verbose
 
 source ./rrp-lib.sh
 # rails generate controller welcome index login logout # If adding authentication
